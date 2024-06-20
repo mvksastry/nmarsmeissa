@@ -41,7 +41,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Composition
+							  {{ $left_panel_title }}
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">
@@ -55,7 +55,7 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
                   
-                   <div class="p-2">
+                  <div class="p-2">
                     @if($showNewReagentEntry)
                       @include('livewire.common.reagents.newReagentForm')
                     @endif
@@ -63,9 +63,7 @@
                     @if($showRemakeReagentEntry)
                       @include('livewire.common.reagents.remakeReagentForm')
                     @endif
-                      
-                    
-                    </div>
+                  </div>
                   
 								</div>
 							</div>
@@ -81,7 +79,7 @@
 						  <div class="card-header">
 							<h3 class="card-title">
 							  <i class="fas fa-chart-pie mr-1"></i>
-							  Stocks
+							  {{ $right_panel_title }}
 							</h3>
 							<div class="card-tools">
 							  <ul class="nav nav-pills ml-auto">

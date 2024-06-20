@@ -129,7 +129,7 @@
 							</tr>
 							<tr class="pb-2">
 								<td colspan="2">
-									<button class="bg-pink-500 w-30 hover:bg-blue-800 text-white font-normal py-2 px-3 mx-3  rounded" wire:click.prevent="remove({{$key1}})">Remove</button>
+									<button class="btn btn-warning btn-sm rounded" wire:click.prevent="remove({{$key1}})">Remove</button>
 								</td>
 							</tr>								
 						@endforeach
@@ -150,6 +150,8 @@
 					  focus:shadow-outline" placeholder="Number only" 
 					  wire:model="quantity_made" type="text">
 					</td>
+        </tr>
+        <tr>
 					<td>
 						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="bulkcode">Unit Desc</label>
 						<div class="relative h-8 w-full min-w-[200px]">
@@ -169,6 +171,8 @@
 							</select>
 						</div>
 					</td>
+        </tr>
+        <tr>
 					<td>
 					  <label class="block text-gray-900 text-sm font-normal font-bold mb-2" for="type">Expiry Date*</label>
 					  <input class="shadow appearance-none border border-red-500 rounded 
@@ -298,8 +302,8 @@
 			<tr>
 				 <td colspan="3" class="text-sm text-gray-900">
 					</br>
-					@hasanyrole('pisg|researcher|veterinarian')
-					<button wire:click="postReagentInfo()" class="bg-green-800 w-22 hover:bg-blue-800 text-white font-normal py-2 px-4 mx-3  rounded">Post Reagent</button>
+					@hasanyrole('pisg|manager|researcher|veterinarian')
+					<button wire:click="postReagentInfo()" class="btn btn-info btn-sm rounded">Post Reagent</button>
 					@endhasanyrole
 				 </td>
 			</tr>

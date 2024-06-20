@@ -427,8 +427,8 @@
 				<tr>
 					<td colspan="3" class="text-sm text-gray-900">
 						@if(!$stopFlag)
-							@hasanyrole('pisg|researcher|veterinarian')
-							<button wire:click="postRemakeReagentInfo('{{ $reagentCode }}')" class="bg-green-800 w-22 hover:bg-blue-800 text-white font-normal py-2 px-4 mx-3  rounded">Remake Reagent</button>
+							@hasanyrole('pisg|manager|researcher|veterinarian')
+							<button wire:click="postRemakeReagentInfo('{{ $reagentCode }}')" class="btn btn-success rounded">Remake Reagent</button>
 							@endhasanyrole
 						@endif
 					</td>

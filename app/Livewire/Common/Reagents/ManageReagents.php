@@ -521,7 +521,7 @@ class ManageReagents extends Component
 				$regs = [];
 			}
 		
-			dd($stopFlag,$this->reagentsUsed );
+			//dd($stopFlag,$this->reagentsUsed );
 
 			if(!$stopFlag)
 			{
