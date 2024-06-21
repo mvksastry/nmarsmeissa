@@ -162,6 +162,11 @@ class ManageReagents extends Component
 		//Log::channel('activity')->info('[ '.tenant('id')." ] [ ".Auth::user()->name.' ] selected the reagent ['.$this->sampCode.' ]');
 	}
 	
+  public function removeSelectedItem($key)
+  {
+    unset($this->inputs[$key]);    
+  }
+  
 	public function postReagentInfo()
 	{	
 		$i=0;

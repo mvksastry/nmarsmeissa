@@ -1,5 +1,5 @@
 	<div class="p-2 mt-3 bg-grey-200 border border-gray-800 rounded shadow">
-		<table class="w-full p-5 text-gray-700">
+		<table class="table table-sm">
 			<thead>
 				<tr>
 					<th align="center">
@@ -9,59 +9,61 @@
 			<tbody> 
 				<tr>
 					<td colspan="2">
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Made By</label>
+            <label for="exampleSelectBorderWidth2">Made By*</label>
+					</td>
+ 					<td colspan="2">
 						{{ Auth::user()->name }}
+					</td>         
+        </tr>
+        <tr>
+					<td colspan="2">
+            <label for="exampleSelectBorderWidth2">Date*</label>
 					</td>
-					<td>
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Date</label>
-						{{ date('Y-m-d') }}
+          <td colspan="2">
+						{{ date('d-m-Y') }}
+					</td>         
+        </tr>
+        <tr>
+					<td colspan="2">
+            <label for="exampleSelectBorderWidth2">Code*</label>
 					</td>
-					<td>
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Code</label>
+					<td colspan="2">
 						{{ $reagentCode }}
-					</td>
+					</td>          
 				</tr>
 				<tr>
 					<td colspan="2">
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Name*</label>
-					  <input placeholder="Name" class="shadow appearance-none border 
-					  border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 
-					  leading-tight focus:outline-none focus:shadow-outline" 
-					  wire:model.defer="reagent_name">
+            <label for="exampleSelectBorderWidth2">Name*</label>
+					  <input wire:model.defer="reagent_name" 
+            class="form-control form-control-sm" 
+            type="text" 
+            placeholder="Name">
 					</td>
 					<td colspan="2">
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Nickname*</label>
-					  <input placeholder="Nickname" class="shadow appearance-none 
-					  border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 
-					  leading-tight focus:outline-none focus:shadow-outline" 
-					  wire:model.defer="reagent_nickname">
+            <label for="exampleSelectBorderWidth2">Nickname*</label>
+					  <input wire:model.defer="reagent_nickname" 
+            class="form-control form-control-sm" 
+            type="text" 
+            placeholder="Nickname">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-					  <label class="block text-gray-900 text-sm font-bold mb-2" for="sampdesc">Description*</label>
-					  <input placeholder="Description" class="shadow appearance-none 
-					  border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 
-					  leading-tight focus:outline-none focus:shadow-outline" 
-					  wire:model.defer="reagent_desc">
+            <label for="exampleSelectBorderWidth2">Description*</label>
+					  <input wire:model.defer="reagent_desc" 
+            class="form-control form-control-sm" 
+            type="text" 
+            placeholder="Description">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-					  <label class="block text-gray-900 text-sm font-normal font-bold mb-2" for="type">Classification*</label>
+            <label for="exampleSelectBorderWidth2">Classification*</label>
 						<div class="relative h-8 w-full min-w-[200px]">
-							<select wire:model="reagentClassCode" 
-								class="form-select appearance-none
-                              block w-full px-3 py-1.5 text-base font-normal
-                              text-gray-700 bg-white bg-clip-padding bg-no-repeat
-                              border border-solid border-gray-300
-                              rounded transition ease-in-out m-0
-                              focus:text-gray-700 focus:bg-white 
-										border border-red-500 rounded focus:border-blue-600 
-										focus:outline-none">
-									<option value="-1">Select</option>
-									<option value="1">Custom</option>
-									<option value="2">Bulk Media-Buffers-Solutions</option>
+              <select class="custom-select rounded-0" wire:model="reagentClassCode" id="exampleSelectRounded0">
+                <option value="-1">Select</option>
+                <option value="1">Custom</option>
+                <option value="2">Bulk Media-Buffers-Solutions</option>
 							</select>
 						</div>
 					</td>										
@@ -70,14 +72,14 @@
 		</table>
 	</div>	
 	<div class="p-2 mt-3 bg-grey-200 border border-gray-800 rounded shadow">	
-		<table class="w-full p-5 text-gray-700">
+		<table class="table table-sm">
 			<thead>
 			</thead>
 			<tbody>	
 				<tr>
 					<td colspan="4">
 						<label class="block text-gray-900 text-sm font-bold pt-3 mb-2" for="stroeinfos">
-							Ingradients*  (Select from inventory panel)
+							Ingradients*(Select from inventory panel)
 						</label>
 					</td>
 				</tr>	
@@ -86,7 +88,7 @@
 		
 		@if($searchResultBox1)
 			<div class="p-2 bg-grey-200 border border-gray-800 rounded shadow">
-				<table class="text-gray-900 text-sm font-normal pt-3 pb-2 mb-2">
+				<table class="table table-sm">
 					<thead>
 						<tr>
 						</tr>
@@ -129,7 +131,7 @@
 							</tr>
 							<tr class="pb-2">
 								<td colspan="2">
-									<button class="btn btn-warning btn-sm rounded" wire:click.prevent="remove({{$key1}})">Remove</button>
+									<button class="btn btn-warning btn-sm rounded" wire:click.prevent="removeSelectedItem({{$key1}})">Remove</button>
 								</td>
 							</tr>								
 						@endforeach
@@ -138,33 +140,25 @@
 			</div>
 		@endif
 
-		<table class="w-full p-5 text-gray-700">
+		<table class="table table-sm">
 			<thead>
 			</thead>
 			<tbody>		
 				<tr>
 					<td >
-					  <label class="block text-gray-900 text-sm font-normal font-bold mb-2" for="type">Quantity Made*</label>
-					  <input class="shadow appearance-none border border-red-500 rounded 
-					  w-full py-1 text-gray-700 mb-1 leading-tight focus:outline-none 
-					  focus:shadow-outline" placeholder="Number only" 
-					  wire:model="quantity_made" type="text">
+            <label for="exampleSelectBorderWidth2">Quantity Made*</label>
+					  <input wire:model.defer="quantity_made" 
+            class="form-control" 
+            type="text" 
+            placeholder="Number only">
 					</td>
         </tr>
         <tr>
 					<td>
-						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="bulkcode">Unit Desc</label>
+						<label for="exampleSelectBorderWidth2">Unit Desc*</label>
 						<div class="relative h-8 w-full min-w-[200px]">
-							<select wire:model="units_desc" 
-								class="form-select appearance-none
-                              block w-full px-3 py-1.5 text-base font-normal
-                              text-gray-700 bg-white bg-clip-padding bg-no-repeat
-                              border border-solid border-gray-300
-                              rounded transition ease-in-out m-0
-                              focus:text-gray-700 focus:bg-white 
-										border border-red-500 rounded focus:border-blue-600 
-										focus:outline-none">
-								<option value="-1">Select</option>
+              <select class="custom-select rounded-0" wire:model="units_desc" id="exampleSelectRounded0">
+                <option value="-1">Select</option>
 									@foreach($units as $unit)
 									<option value="{{ $unit->unit_id }}">{{ ucfirst($unit->description) }}</option>
 									@endforeach
@@ -174,124 +168,104 @@
         </tr>
         <tr>
 					<td>
-					  <label class="block text-gray-900 text-sm font-normal font-bold mb-2" for="type">Expiry Date*</label>
-					  <input class="shadow appearance-none border border-red-500 rounded 
-					  w-full py-1 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" 
-					  id="description" wire:model="expirty_date" type="date">
+            <label for="exampleSelectBorderWidth2">Expiry Date*</label>
+					  <input wire:model.defer="expirty_date" 
+            class="form-control form-control-sm" 
+            type="date" 
+            placeholder="Number only">
 					</td>											
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="p-2 mt-3 bg-grey-200 border border-gray-800 rounded shadow">
-		<table class="w-full p-5 text-gray-700">
+		<table class="table table-sm">
 			<thead>
 			</thead>
 			<tbody>			
 				<tr>
 					<td colspan="4"> 
-						<label class="block text-gray-900 text-sm font-bold pt-3 mb-2" for="stroeinfos">
-							Storage Information*
-						</label>
+            <label for="exampleSelectBorderWidth2">Storage Information*</label>
 					</td>
 				</tr>
 				
 				<tr>
 					<td colspan="2">
-						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Container*</label>
-						<div class="relative h-8 w-72 min-w-[200px]">
-							<select wire:model="container_id" 
-								class="form-select appearance-none
-                              block w-full px-3 py-1.5 text-base font-normal
-                              text-gray-700 bg-white bg-clip-padding bg-no-repeat
-                              border border-solid border-gray-300
-                              rounded transition ease-in-out m-0
-                              focus:text-gray-700 focus:bg-white 
-										border border-red-500 rounded focus:border-blue-600 
-										focus:outline-none">
-								<option value="-1">Select</option>
-								@foreach($repositories as $row)
-								<option value="{{ $row->repository_id }}">{{ $row->repository_type }}</option>
-								@endforeach
+            <label for="exampleSelectBorderWidth2">Container*</label>
+            
+            <div class="relative h-8 w-full min-w-[200px]">
+              <select class="custom-select rounded-0" wire:model="container_id" id="exampleSelectRounded0">
+                <option value="-1">Select</option>
+									@foreach($repositories as $row)
+                  <option value="{{ $row->repository_id }}">{{ $row->repository_type }}</option>
+                  @endforeach
 							</select>
 						</div>
 					</td>
 					<td colspan="2">
-						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Compartment ID*</label>
-						<input size="15" placeholder="Compartment" class="shadow appearance-none border 
-						border-red-500 rounded w-full py-1 text-gray-700 mb-1 leading-tight focus:outline-none 
-						focus:shadow-outline" id="validTill" wire:model="rack_shelf" type="text">
+            <label for="exampleSelectBorderWidth2">Compartment ID*</label>
+						<input wire:model.defer="rack_shelf" 
+            class="form-control" 
+            type="text" 
+            placeholder="Compartment">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="username">Box/Sack ID*</label>
-						<input size="15" placeholder="Box or Sack" class="shadow appearance-none border 
-						border-red-500 rounded w-full py-1 text-gray-700 mb-1 leading-tight focus:outline-none 
-						focus:shadow-outline" id="validTill" wire:model="box_sack" type="text">
+            <label for="exampleSelectBorderWidth2">Box/Sack ID*</label>
+						<input wire:model.defer="box_sack" 
+            class="form-control" 
+            type="text" 
+            placeholder="Box or Sack">						
 					</td>
 					<td colspan="2">
-						<label class="block text-gray-900 text-sm font-bold font-normal mb-2" for="seriescode">Location ID</label>
-						<input size="15" placeholder="Location" class="shadow appearance-none border 
-						border-red-500 rounded w-full py-1 text-gray-700 mb-1 leading-tight focus:outline-none 
-						focus:shadow-outline" id="approvedRef" wire:model="location_code" type="text">
+          <label for="exampleSelectBorderWidth2">Location ID*</label>
+						
+						<input wire:model.defer="location_code" 
+            class="form-control" 
+            type="text" 
+            placeholder="Location">
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="p-2 mt-3 bg-grey-200 border border-gray-800 rounded shadow">
-		<table class="w-full p-5 text-gray-700">
+		<table class="table table-sm">
 			<thead>
 			</thead>
 			<tbody>			
 				<tr>
 					<td colspan="4"> 
-						<label class="block text-gray-900 text-sm font-bold pt-3 mb-2" for="stroeinfos">
-							Open or Restricted
-						</label>   
+            <label for="exampleSelectBorderWidth2">Open or Restricted*</label> 
 					</td>
 				</tr>
+        <tr>
 					<td colspan="2">
-						<div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-							<input wire:model="openrestriced" value="1"
-							  class="relative float-left mt-0.5 mr-1 -ml-[1.5rem] h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:checked:focus:border-primary"
-							  type="radio"/>
-							<label
-							  class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-							  for="radioDefault01">
-							  Open 
-							</label>
-						</div>
-					</td>
+            <div class="ml-xl-4">
+              <input wire:model="openrestriced" class="form-check-input" type="radio" name="radio1">  
+              <label for="exampleSelectBorderWidth2">Open</label> 		
+             </div>
+          </td>
+
 					<td colspan="2">
-						<div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-							  <input wire:model="openrestriced" value="0"
-							  class="relative float-left mt-0.5 mr-1 -ml-[1.5rem] h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:checked:focus:border-primary"
-							  type="radio"/>
-							<label
-							  class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-							  for="radioDefault01">
-							  Restricted
-							</label>
+            <div class="ml-xl-4">
+              <input wire:model="openrestriced" class="form-check-input" type="radio" name="radio1">    
+              <label for="exampleSelectBorderWidth2">Restricted</label>
 						</div>
 					</td>
 				</tr>
 				
 				<tr>
 					<td colspan="4">
-						<label class="block text-gray-900 text-sm pt-3 mb-2" for="sampdesc">
-							Notes, If any
-						</label>
-						<input placeholder="Sample remarks, if any" class="h-15 shadow appearance-none 
-						border border-red-500 rounded w-full py-1 px-1 text-gray-700 mb-1 leading-tight 
-						focus:outline-none focus:shadow-outline" wire:model.defer="note_remark">
+          <label for="exampleSelectBorderWidth2">Notes, If any</label>
+						<input wire:model.defer="note_remark" class="form-control" type="text" placeholder="Sample remarks, if any">
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<table class="w-full p-5 text-gray-700">
+	<table class="table table-sm">
 		<thead>
 			<tr>
 				<th align="center">
