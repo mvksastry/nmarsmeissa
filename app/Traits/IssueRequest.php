@@ -25,7 +25,7 @@ trait IssueRequest
 	
   public function postIssueRequest($input)
   {
-    $projectInfo = Iaecproject::where('project_id', $input['project_id'])->first();
+    $projectInfo = Iaecproject::where('iaecproject_id', $input['project_id'])->first();
       
     $end_date = $projectInfo->end_date;
 
@@ -77,7 +77,7 @@ trait IssueRequest
 	{
 		$result = Usage::where('species_id', $input['species_id'])
                    ->where('strain_id', $input['strain_id'])
-                   ->where('project_id', $input['project_id'])
+                   ->where('iaecproject_id', $input['project_id'])
                    ->where('issue_status', 'Approved')
                    ->sum('number');
 		return $result;
@@ -87,7 +87,7 @@ trait IssueRequest
 	{
     $allYearsSanctioned = Projectstrains::where('species_id', $input['species_id'])
                                                  ->where('strain_id', $input['strain_id'])
-                                                 ->where('project_id', $input['project_id'])
+                                                 ->where('iaecproject_id', $input['project_id'])
                                                  ->sum('allyearstotal');														 
 		$xcv = $this->strainConsumed($input);
     $balance = $allYearsSanctioned - $xcv;
@@ -108,7 +108,7 @@ trait IssueRequest
 		
 	public function saveIssueRequest($input)
 	{
-    $issueRequest['project_id']   = $input['project_id'];
+    $issueRequest['iaecproject_id']   = $input['project_id'];
     $issueRequest['pi_id']        = $input['pi_id'];
     $issueRequest['species_id']   = $input['species_id'];
     $issueRequest['strain_id']    = $input['strain_id'];
@@ -135,7 +135,7 @@ trait IssueRequest
 		
 	public function postStatusExpired($project_id)
 	{
-		$result = Iaecproject::where('project_id', $project_id)->update($sql1);
+		$result = Iaecproject::where('iaecproject_id', $project_id)->update($sql1);
 		$old = $result->comments;
 		$result->status = "Expired";
 		$result->comments = $old.";;; [".date('Y-m-d')."] No more issue possible.";
