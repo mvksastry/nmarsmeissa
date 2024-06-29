@@ -259,9 +259,9 @@ class ProjectsManagerController extends Controller
     if( $result != null )
     {
       $input = $request->validate([
-        'iaec_comments' => 'required|regex:/^[a-zA-Z0-9\s-_]+$/|max:255',
+        'iaec_comments' => 'required|regex:/^[a-zA-Z0-9\s .,\-\_]+$/|max:255',
         'iaec_date'     => 'required|date',
-        'iaec_meeting'  => 'required|regex:/^[a-zA-Z0-9\s-_]+$/|max:255',
+        'iaec_meeting'  => 'required|regex:/^[a-zA-Z0-9\s .,\-\_]+$/|max:255',
         'iaec_decision' => 'required|numeric'
       ]);
 

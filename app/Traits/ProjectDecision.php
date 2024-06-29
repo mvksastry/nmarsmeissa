@@ -35,7 +35,7 @@ trait ProjectDecision
 
 		$newProject_id = Iaecproject::max('iaecproject_id') + 1;
 
-		switch ($input['decision']) {
+		switch ($input['iaec_decision']) {
 
 			case 0:
 				$tempProj->comments = $iaec_comments;

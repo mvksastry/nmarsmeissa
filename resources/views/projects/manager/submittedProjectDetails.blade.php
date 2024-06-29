@@ -180,7 +180,7 @@
                         <td class="text-wrap text-xs">IAEC Meeting Date</td>
                         <td class="text-wrap text-xs">
                           <input class="form-control form-control-border shadow border rounded" 
-                          id="iaec_date" name="iaec_date" value="2024-06-29" type="date" placeholder="IAEC Approval Date: Y-m-d">
+                          id="iaec_date" name="iaec_date" type="date" placeholder="IAEC Approval Date: Y-m-d">
                           @if($errors->has('iaec_date'))
                             <p class="help-block text-orange-200">
                               {{ $errors->first('iaec_date') }}
@@ -193,7 +193,7 @@
                         <td class="text-wrap text-xs">IAEC Meeting Remarks</td>
                         <td class="text-wrap text-xs">
                           <input class="form-control form-control-border shadow rounded" 
-                          id="iaec_meeting" name="iaec_meeting" value="IAEC information on meeting" type="text" placeholder="IAEC Meeting Information">
+                          id="iaec_meeting" name="iaec_meeting" type="text" placeholder="IAEC Meeting Information">
                           @if($errors->has('iaec_meeting'))
                             <p class="help-block text-orange-200">
                               {{ $errors->first('iaec_meeting') }}
