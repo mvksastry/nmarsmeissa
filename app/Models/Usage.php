@@ -19,7 +19,7 @@ class Usage extends Model
   protected $primaryKey = 'usage_id';
     
     protected $fillable = [
-    	'project_id',
+    	'iaecproject_id',
     	'pi_id',
     	'species_id',
     	'strain_id',
@@ -58,11 +58,11 @@ class Usage extends Model
     }
 		
     // Customize log name
-    protected static $logName = 'Issue';
+    protected static $logName = 'Usage';
 
     // Only defined attribute will store in log while any change
     protected static $logAttributes = [
-    	'project_id',
+    	'iaecproject_id',
     	'pi_id',
     	'species_id',
     	'strain_id',
