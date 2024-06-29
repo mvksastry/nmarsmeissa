@@ -44,7 +44,7 @@ trait FormDEntryAdmin
 			{
         $tableFormD = $res->formD;
 				$formD['staff_name'] = $res->user->name;
-				$formD['authorized_person'] = "[ Auto Entry For ]".$res->user->name;
+				$formD['authorized_person'] = "[ Auto Entry For ] ".$res->user->name;
 				$formD['authorized_signature'] = $res->user->name;
 			}
 			//$tableFormD = $row->project_id."nformd";

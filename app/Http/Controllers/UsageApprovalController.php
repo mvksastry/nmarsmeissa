@@ -117,7 +117,7 @@ class UsageApprovalController extends Controller
         $msg = $this->approveUsageRequest($input);
       }
         
-      return redirect()->route('usages.manager.index')
+      return redirect()->route('usageapprovals.index')
                       ->with('flash_message', $msg);
     }
 
