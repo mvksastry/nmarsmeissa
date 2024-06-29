@@ -149,6 +149,7 @@ class ProjectsManagerController extends Controller
    */
   public function submitted($id)
   {
+    
     $subProject = Tempproject::where('tempproject_id', $id)->first();
     $strainsPosted = Tempstrain::with('strains')
                   ->where('tempproject_id', $id )->get();
@@ -257,7 +258,14 @@ class ProjectsManagerController extends Controller
     //dd($id, $input, $result);
     if( $result != null )
     {
-      $input = $request->validated();
+      $input = $request->validate([
+        'iaec_comments' => 'required|regex:/^[a-zA-Z0-9\s-_]+$/|max:255',
+        'iaec_date'     => 'required|date',
+        'iaec_meeting'  => 'required|regex:/^[a-zA-Z0-9\s-_]+$/|max:255',
+        'iaec_decision' => 'required|numeric'
+      ]);
+
+      //dd($input);
       $input['id'] = $id;
       $input['NBformD'] = "yes";
       $msg = $this->accordDecision($input);
