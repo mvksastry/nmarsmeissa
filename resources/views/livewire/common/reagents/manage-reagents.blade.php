@@ -138,11 +138,11 @@
                                 </td> 
                                                                           
                                 <td>
-                                @if($product->status_open_unopened == 1)
-                                  Opened
-                                @else
-                                  Unopened
-                                 @endif                              
+                                  @if($product->status_open_unopened == 1)
+                                    Opened
+                                  @else
+                                    Unopened
+                                  @endif                              
                                 </td>
                                 <td>{{ $product->quantity_left }} 
                                 @if($product->units->description == "micro liter")
