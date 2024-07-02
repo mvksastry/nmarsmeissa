@@ -129,7 +129,13 @@
                                 <td>{{ $product->pack_mark_code }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->catalog_id }}</td>
-                                <td>{{ $product->num_packs }}  x {{ $product->pack_size }} {{ $product->units->description }}</td> 
+                                <td>{{ $product->num_packs }}  x {{ $product->pack_size }} 
+                                @if($product->units->description == "micro liter")
+                                &#956l
+                                @else
+                                {{ $product->units->symbol_add }}
+                                @endif
+                                </td> 
                                                                           
                                 <td>
                                 @if($product->status_open_unopened == 1)
@@ -138,7 +144,14 @@
                                   Unopened
                                  @endif                              
                                 </td>
-                                <td>{{ $product->quantity_left }} {{ $product->units->description }}</td>
+                                <td>{{ $product->quantity_left }} 
+                                @if($product->units->description == "micro liter")
+                                &#956l
+                                @else
+                                {{ $product->units->symbol_add }}
+                              {{ $product->units->symbol }}
+                                @endif
+                                </td>
                                 
                                 <td>{{ $product->storage_container_id }}</td>
                                 <td>{{ $product->shelf_rack_id }}</td>
