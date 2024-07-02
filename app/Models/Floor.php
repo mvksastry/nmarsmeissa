@@ -33,7 +33,7 @@ class Floor extends Model
       return $this->hasOne(Building::class, 'building_id', 'building_id');
     }
 		
-    public function room()
+    public function rooms()
     {
       return $this->hasMany(Room::class, 'floor_id', 'floor_id');
     }

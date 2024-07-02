@@ -27,7 +27,9 @@ class FloorController extends Controller
      */
     public function index()
     {
-      return view('facility.floors.index');
+      $floors = Floor::with('building')->with('rooms')->get();
+      //dd($floors);
+      return view('facility.floors.index')->with(['floors'=>$floors]);
     }
 
     /**
