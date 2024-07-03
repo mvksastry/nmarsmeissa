@@ -76,16 +76,20 @@
                             <td>{{ date('d-m-Y', strtotime($row->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($row->end_date)) }}</td>
                             <td>
+                            @hasexactroles('pient')
                               <a href="{{ route('projectsmanager.edit',[$row->tempproject_id]) }}">
                                 <button class="btn btn-sm btn-warning">
                                   Edit
                                 </button>
                               </a>
+                            @endhasexactroles
+                            @hasexactroles('manager')
                               <a href="{{ route('projectsmanager.submitted',[$row->tempproject_id]) }}">
                                 <button class="btn btn-sm btn-info">
                                   Decision
                                 </button>
                               </a>
+                            @endhasexactroles
                             </td>
                           </tr>
 												@endforeach									
