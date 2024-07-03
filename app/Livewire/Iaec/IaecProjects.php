@@ -54,11 +54,13 @@ class IaecProjects extends Component
 
     public $project_id, $title, $start_date, $end_date, $comments;
     public $date_approved, $filename, $iaec_meeting_info, $iaec_comments;
-
+    public $iaec_approval_ref;
+    
     public $pstx, $pstx1, $irqMessage, $swc, $formD, $nbes, $nbimages;
     public $strains, $sex, $age, $ageunit, $number, $cagenumber, $termination;
     public $products, $remarks, $agree, $issueConfirmed, $cageProjectCostInfos;
-
+    public $duration;
+    
     public $ic, $pc, $projfile, $projReps, $breederId, $exptdesc1;
 
     public $issueId, $issueIdx, $protocolId, $expdate;
@@ -125,6 +127,7 @@ class IaecProjects extends Component
           $this->date_approved = $project->date_approved;
           $this->filename = $project->filename;
           $this->iaec_meeting_info = $project->iaec_meeting_info;
+          $this->iaec_approval_ref = $project->iaec_approval_ref;
           $this->iaec_comments = $project->iaec_comments;
           $this->projfile = $project->filename;
           $this->issueConfirmed	= Usage::with('strain')->where('iaecproject_id', $id )
@@ -152,6 +155,7 @@ class IaecProjects extends Component
           $this->date_approved = $project->date_approved;
           $this->filename = $project->filename;
           $this->iaec_meeting_info = $project->iaec_meeting_info;
+          $this->iaec_approval_ref = $project->iaec_approval_ref;
           $this->iaec_comments = $project->iaec_comments;
           $this->pstx = $this->fetchProjectStrainsById($id);;
           $swc = $this->consumptionByProjectId($id);
@@ -204,6 +208,9 @@ class IaecProjects extends Component
           $input['termination'] = $this->termination;
           $this->validate(['termination' => 'required|regex:/^[\pL\s\- ;0-9_]+$/u|max:150']);
 
+          $input['duration'] = $this->duration;
+          $this->validate(['duration' => 'required|regex:/^[0-9]+$/u|max:52']);
+
           $input['products'] = $this->products;
           $this->validate(['products' => 'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:150']);
 
@@ -252,6 +259,7 @@ class IaecProjects extends Component
                 'number' =>      'required|numeric|max:1000',
                 'cagenumber' =>  'required|numeric|max:30',
                 'termination' => 'required|regex:/^[\pL\s\- ;0-9_]+$/u|max:150',
+                'duration' =>    'required|numeric|max:52',
                 'products' =>    'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:150',
                 'remarks' =>     'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:250',
                 'agree' =>       'required|numeric|max:2'

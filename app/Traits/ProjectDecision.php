@@ -54,6 +54,7 @@ trait ProjectDecision
 				$project->start_date        = $tempProj->start_date;
 				$project->end_date          = $tempProj->end_date;
 				$project->iaec_meeting_info = $input['iaec_meeting'];
+        $project->iaec_approval_ref = $input['iaec_app_ref'];
 				$project->iaec_comments     = $tempProj->iaec_comments.';;;'.$input['iaec_comments'];
 				$project->comments          = $tempProj->notes;
 				$project->filename          = $tempProj->filename;

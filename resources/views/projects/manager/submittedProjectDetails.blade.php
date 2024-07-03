@@ -162,6 +162,19 @@
                           </a>
                         </td>
                       </tr>
+ 
+                      <tr>                     
+                        <td class="text-wrap text-xs">IAEC Approval Ref</td>
+                        <td class="text-wrap text-xs">
+                        <input class="form-control form-control-border shadow border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" 
+                          id="iaec_app_ref" name="iaec_app_ref" value="" type="text" placeholder="Approval Reference">
+                          @if($errors->has('iaec_app_ref'))
+                            <p class="help-block text-orange-200">
+                              {{ $errors->first('iaec_app_ref') }}
+                            </p>
+                          @endif
+                        </td>
+                      </tr>
                       
                       <tr>                     
                         <td class="text-wrap text-xs">IAEC Comments</td>

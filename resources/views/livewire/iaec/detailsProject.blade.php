@@ -380,6 +380,27 @@
 
 	              <tr>
 	                <td>
+	                  Expt Duration (in weeks)
+	                </td>
+	                <td>
+									<input type="text" class="form-control shadow border rounded" id="duration" placeholder="Number Only " wire:model="duration">
+	                </td>
+	              </tr>
+
+								<tr>
+									<td>
+									</td>
+									<td>
+										@error('termination')
+											<span class="text-red-500 text-xs">
+											{{ $message }}
+											</span>
+										@enderror
+									</td>
+								</tr>
+                
+	              <tr>
+	                <td>
 	                  Animal Products
 	                </td>
 	                
