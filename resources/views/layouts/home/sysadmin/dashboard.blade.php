@@ -25,7 +25,7 @@
 			<div class="container-fluid">
 			
 				@hasrole('admin')
-					@include('layouts.home.admin.flexMenuSysadmin')
+					@include('layouts.home.sysadmin.flexMenuSysadmin')
 				@endhasrole
 								
 				<!-- Main row -->

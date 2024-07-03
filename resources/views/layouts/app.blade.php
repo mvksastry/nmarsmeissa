@@ -17,26 +17,14 @@
       @hasexactroles('manager|employee')
         @include('layouts.menus.director')
       @endhasexactroles
+      
+      @hasexactroles('admin')
+        @include('layouts.menus.sysadmin.admin')
+      @endhasexactroles
 
       @hasexactroles('manager')
         @include('layouts.menus.manager.manager')
       @endhasexactroles
-      
-      @hasexactroles('admin|team_leader|employee')
-        @include('layouts.menus.admin')
-      @endhasexactroles
-      
-      @hasexactroles('finance|employee')
-        @include('layouts.menus.finance')
-      @endhasexactroles
-
-      @hasrole('supervisor')
-        @include('layouts.menus.supervisor')
-      @endhasrole      
-
-      @hasrole('strpur')
-        @include('layouts.menus.strpur')
-      @endhasrole
       
       @hasexactroles('pient')
         @include('layouts.menus.pient.pient')

@@ -14,7 +14,7 @@
 				  with font-awesome or any other icon font library -->
         
        
-        @include('layouts.menus.sysadmin.officeSettingsAdmin')
+        @include('layouts.menus.officeSettingsAdmin')
        
 
 			</ul>

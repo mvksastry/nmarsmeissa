@@ -207,7 +207,7 @@ class HomeController extends Controller
 			$subProjects = Tempproject::where('status', 'submitted')->get();
 			$activeProjects = Iaecproject::where('status', 'active')->get();
       Log::channel('activity')->info('Logged in user [ '.Auth::user()->name.' ] dashboard requested');
-			return view('supadmin.supadminHome')->with([
+			return view('layouts.home.sysadmin.dashboard')->with([
 									'users'=>$users,
 									'groupTasks'=> 0
 								 ]);
