@@ -337,7 +337,7 @@
 				<!-- Main row -->
 				<div class="row">
 					<!-- Left col -->
-					<section class="col-lg-6 connectedSortable">
+					<section class="col-lg-12 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">
@@ -365,9 +365,11 @@
                       <tr>
                         <td class="text-wrap text-center text-sm"> Date </td>
                         <td class="text-wrap text-center text-sm"> Req.Animals </td>
-                        <td class="text-wrap text-center text-sm"> Breeder </td>
+                        <td class="text-wrap text-center text-sm"> Breeder Address</td>
                         <td class="text-wrap text-center text-sm"> IAEC Approval </td>
                         <td class="text-wrap text-center text-sm"> Duration of Expt </td>
+                        <td class="text-wrap text-center text-sm"> Auth. Person </td>
+                        <td class="text-wrap text-center text-sm"> Auth. Signature</td>
                       </tr>
 											
 												@foreach($formd as $val)
@@ -376,8 +378,8 @@
 														{{ $val->entry_date}}
                           </td>
                           <td class="text-wrap text-center text-sm">
-                            {{ $val->req_anim_number }}, {{ $val->species}},
-														{{ $val->strain }}, {{ $val->age." ".$val->ageunit}}
+                            {{ $val->req_anim_number }}, {{ $val->species_name}},
+														{{ $val->strain_name }}, {{ $val->age." ".$val->ageunit}}
                           </td>
                           <td class="text-wrap text-center text-sm">
                             {{ $val->breeder_add }}
@@ -386,20 +388,16 @@
                             {{ $val->approval_date }}
                           </td>
                           <td class="text-wrap text-center text-sm">
-                            To be included
+                          {{ $val->duration }} weeks
                           </td>
-
-                        </tr>
-												@endforeach
-												<td class="text-wrap text-center text-sm"> Authorized Person </td>
-
-												<td class="text-wrap text-center text-sm">
+                          <td class="text-wrap text-center text-sm">
 														{{ $val->authorized_person }}
                           </td>
-												<td class="text-wrap text-center text-sm"> Signature Investigator </td>
-													<td class="text-wrap text-center text-sm">
-														Signed
+                          <td class="text-wrap text-center text-sm">
+														Auto Signed
                           </td>
+                        </tr>
+												@endforeach
 											@else
 												<tr class="text-wrap text-center text-sm">
                           <td class="text-wrap text-center text-sm">
@@ -418,8 +416,12 @@
 						<!-- /.card -->
 						<!-- /.card -->
 					</section>
-          
-          <section class="col-lg-6 connectedSortable">
+        
+        </div>
+
+
+        <div class="row">
+          <section class="col-lg-12 connectedSortable">
 						<!-- Custom tabs (Charts with tabs)-->
 						<div class="card card-primary card-outline">
 						  <div class="card-header">

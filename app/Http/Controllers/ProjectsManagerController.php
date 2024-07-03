@@ -196,10 +196,14 @@ class ProjectsManagerController extends Controller
     $issue	= Usage::with('strain')->where('iaecproject_id', $id )
                     ->whereIn('issue_status', ['approved', 'issued'])
                     ->get();
-    //dd($issue);             
+   
     $swc	= $this->consumptionByProjectId($id);
     
-    $formd = DB::table($table)->get();
+    $formd = DB::table($table)
+                    ->leftJoin('usages', 'usages.usage_id', '=', $table.'.usage_id')
+                    ->leftJoin('strains', 'strains.strain_id', '=', $table.'.strain')
+                    ->leftJoin('species', 'species.species_id', '=', $table.'.species')
+                    ->get();
 
     $costs = $this->ProjectWiseCost($id);
 
