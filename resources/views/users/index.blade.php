@@ -25,8 +25,8 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-				@hasrole('manager')
-					@include('users.flexMenuAdminNewProjects')
+				@hasrole('admin')
+					@include('users.flexMenuAdminNewUsers')
 				@endhasrole
 				<!-- Main row -->
 				<div class="row">
@@ -50,8 +50,6 @@
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
-
-
 
 									@if( count($users) > 0 )
 										<table id="userIndex2" class="table table-bordered table-hover">
