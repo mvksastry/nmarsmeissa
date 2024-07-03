@@ -184,7 +184,7 @@
       <tr>
         <td>
           <button type="submit" class="btn btn-lg btn-info">
-            Decision
+            Submit
           </button>
         </td>
        </tr>			
