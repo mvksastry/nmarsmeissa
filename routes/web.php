@@ -71,8 +71,8 @@ use App\Http\Controllers\Breeding\BreedingHomeController;
 
 //-------------------------------------------------------//
 // Super Admin and Manager specific
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 
 
@@ -119,6 +119,7 @@ use App\Livewire\Common\Inventory\UpdateConsumption;
 use App\Livewire\Common\Inventory\ConsumptionReplenishment;
 use App\Livewire\Common\Inventory\ReviewInventory;
 use App\Livewire\Common\LogBook;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -312,11 +313,11 @@ Route::middleware(['auth','verified'])->group(function() {
 		Route::post('users_mass_destroy', ['uses' => 'App\Http\Controllers\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
 
 		//roles routes
-		Route::resource('roles', RoleController::class);	
+		Route::resource('roles', RolesController::class);	
 		Route::post('roles_mass_destroy', ['uses' => 'App\Http\Controllers\RoleController@massDestroy', 'as' => 'roles.mass_destroy']);
 
 		//permissions routes
-		Route::resource('permissions', PermissionController::class);	
+		Route::resource('permissions', PermissionsController::class);	
 		Route::post('permissions_mass_destroy', ['uses' => 'App\Http\Controllers\PermissionController@massDestroy', 'as' => 'permissions.mass_destroy']);
     
     
