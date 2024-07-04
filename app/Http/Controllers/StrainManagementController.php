@@ -90,7 +90,7 @@ class StrainManagementController extends Controller
      */
     public function changestatus()
     {
-      if( Auth::user()->hasAnyRole('pisg','pilg','piblg', 'manager') )
+      if( Auth::user()->hasAnyRole('pisg','manager') )
       {
         $species = Species::all();
         
@@ -246,7 +246,7 @@ class StrainManagementController extends Controller
         }
         //get the strain box
         //complete the code part of interface
-        return redirect()->route('strain-manage.index')
+        return redirect()->route('strains.index')
                 ->with('flash_message',
                  'Strains Updated!');
       }
@@ -318,7 +318,7 @@ class StrainManagementController extends Controller
         }
         //get the strain box
         //complete the code part of interface
-        return redirect()->route('strain-manage.index')
+        return redirect()->route('strains.index')
                 ->with('flash_message',
                  'Strains Updated!');
       }
