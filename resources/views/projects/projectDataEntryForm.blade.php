@@ -105,33 +105,33 @@
           <tr bgcolor="#FFFFED">
             <td class="block text-gray-900 text-xs mt-1 mb-1 font-normal">
               <div class="form-check">
-                <input type="checkbox" name="exp_strain[]" value="{{ $val->species->species_name.'_'.$val->strain_name }}" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" name="exp_strain[]" value="{{ $val->species->species_name.'_'.$val->uuid }}" class="form-check-input" id="exampleCheck1">
                 {{ $val->strain_name }}
               </div>
             </td>
             <td>
               <div class="form-check w-20">
-                <input type="number" name="{{ $val->strain_name }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 1">
+                <input type="number" name="{{ $val->uuid }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 1">
               </div>
             </td>
             <td>
               <div class="form-check">
-                <input type="number" name="{{ $val->strain_name }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 2">
+                <input type="number" name="{{ $val->uuid }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 2">
               </div>
             </td>
             <td>
               <div class="form-check">
-                <input type="number" name="{{ $val->strain_name }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 3">
+                <input type="number" name="{{ $val->uuid }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 3">
               </div>
             </td>
             <td>
               <div class="form-check">
-                <input type="number" name="{{ $val->strain_name }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 4">
+                <input type="number" name="{{ $val->uuid }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 4">
               </div>
             </td>
             <td>
               <div class="form-check">
-                <input type="number" name="{{ $val->strain_name }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 5">
+                <input type="number" name="{{ $val->uuid }}[]"class="form-control" id="exampleInputEmail1" placeholder="Year 5">
               </div>
             </td>
           </tr>

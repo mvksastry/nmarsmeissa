@@ -36,14 +36,22 @@ trait ProjectSubmission
     $aprojecttitle    = $request['title'];
     $aStDate          = date('Y-m-d',strtotime($request['start_date']));
     $aendate          = date('Y-m-d',strtotime($request['end_date']));
-    $inp = $request->all();
-    //dd($inp, $tickedStrains);
-    //foreach($tickedStrains as $val)
-    //{
-      //$darr = explode("_", $val);
-      //$ticketStrainYearData[$darr[1]] = $inp[$darr[1]];
-    //}
-    //dd($ticketStrainYearData);
+    
+    //the following block of code can be used for testing
+    // the request object processing.
+    //$inp = $request->all();
+    //dd($inp, $tickedStrains);   
+    
+    /*
+    foreach($tickedStrains as $val)
+    {
+    $darr = explode("_", $val);
+    $tickedStrainYearData[$darr[1]] = $inp[$darr[1]];
+    }
+    dd($tickedStrainYearData);
+    */
+ 
+ 
  
     if($spcomments == NULL || $spcomments == "")
     {
@@ -111,7 +119,7 @@ trait ProjectSubmission
 
   public function decodeStrainData($tickedSpecies, $tickedStrains, $request)
   {
-    $today = $this->today();
+      $today = $this->today();
       foreach( $tickedSpecies as $val)
       {
         $tarray = explode('_', $val);
@@ -128,11 +136,21 @@ trait ProjectSubmission
           if ($speciesName == $t1array[0])
           {
             //$t2array = explode('_', $tickedStrains[$i]);
-            $strainName = $t1array[1];
-            $strainId = Strain::where('strain_name', $strainName)->first()->strain_id;
+            $strainUuid = $t1array[1];
+            //$strainName = $t1array[1];
+            $selStrain = Strain::where('uuid', $strainUuid)->first();
+            
+            $strainId = $selStrain->strain_id;
+            $strainName = $selStrain->strain_name;
             //$strainId = Strain::where('strain_name', $strainName)->pluck('strain_id');
             //$strainId = $this->commonri->strainIdFromStrainName($strainName);
-            $t3array = $request[$strainName];
+            
+            //this is old line when using strain name
+            //$t3array = $request[$strainName];
+            
+            //this is new line changed on 5 Jul 2024
+            $t3array = $request[$strainUuid];
+            
             //number of yearwise entries cannot exceed
             //duratin of the project. check the entries throw an error
             //if not matched
@@ -157,7 +175,9 @@ trait ProjectSubmission
                         'year5'           => $year5
               );
             }
-          }
+            
+          } //this if can be removed
+          
         }
       }
     return $tempStrainSql;
