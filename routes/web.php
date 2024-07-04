@@ -305,8 +305,6 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('/review-inventory', ReviewInventory::class);
     Route::get('/log-book', LogBook::class);
 
-
-
     //-- Super admin and Manager specific routes    
 		//Users routes
 		Route::resource('users', UsersController::class);	
