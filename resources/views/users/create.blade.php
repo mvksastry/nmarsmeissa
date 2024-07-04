@@ -53,79 +53,86 @@
 						  <div class="card-body">
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
-								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+								
                   <form method="POST" action="{{ route('users.store') }}" enctype ="multipart/form-data">
                     @csrf
                     <!-- project data entry form -->
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">Name*</label>
-                      <input type="text" class="form-control form-control-border" 
-                      name="name" id="name" placeholder="Name">
-                      @if($errors->has('name'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('name') }}
-                        </p>
-                      @endif
-                    </div>
-                    
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">Email*</label>
-                      <input type="text" class="form-control form-control-border" 
-                      name="email" id="email" placeholder="Email">
-                      @if($errors->has('email'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('email') }}
-                        </p>
-                      @endif
-                    </div>
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">Name*</label>
+                        <input type="text" class="form-control form-control-border" 
+                        name="name" id="name" placeholder="Name">
+                        @if($errors->has('name'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('name') }}
+                          </p>
+                        @endif
+                      </div>
 
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">password*</label>
-                      <input type="text" class="form-control form-control-border" 
-                      name="password" id="password" value="secret1234" placeholder="Password">
-                      @if($errors->has('password'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('password') }}
-                        </p>
-                      @endif
-                    </div>  
-                    
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">Start Date*</label>
-                      <input type="date" class="form-control form-control-border" 
-                      name="start_date" id="start_date" placeholder="Start Date">
-                      @if($errors->has('start_date'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('start_date') }}
-                        </p>
-                      @endif
-                    </div>                     
-
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">End Date*</label>
-                      <input type="date" class="form-control form-control-border" 
-                      name="end_date" id="end_date" placeholder="End Date">
-                      @if($errors->has('end_date'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('end_date') }}
-                        </p>
-                      @endif
-                    </div>                     
-                    
-                    <div class="col-xs-12 form-group">
-                      <label for="exampleInputBorderWidth2">Role*</label>
-                      <select class="form-control shadow border rounded" name="role" id="role">
-                        <option value="">Select</option>
-                        @foreach($roles as $role)
-                        <option value="{{ $role->name }}">{{ $role->name }}</option>
-                        @endforeach
-                      </select>
-                      @if($errors->has('role'))
-                        <p class="help-block text-danger">
-                          {{ $errors->first('role') }}
-                        </p>
-                      @endif
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">Email*</label>
+                        <input type="text" class="form-control form-control-border" 
+                        name="email" id="email" placeholder="Email">
+                        @if($errors->has('email'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('email') }}
+                          </p>
+                        @endif
+                      </div>
                     </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">password*</label>
+                        <input type="text" class="form-control form-control-border" 
+                        name="password" id="password" value="secret1234" placeholder="Password">
+                        @if($errors->has('password'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('password') }}
+                          </p>
+                        @endif
+                      </div>  
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">Role*</label>
+                        <select class="form-control shadow border rounded" name="role" id="role">
+                          <option value="">Select</option>
+                          @foreach($roles as $role)
+                          <option value="{{ $role->name }}">{{ $role->name }}</option>
+                          @endforeach
+                        </select>
+                        @if($errors->has('role'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('role') }}
+                          </p>
+                        @endif
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">Start Date*</label>
+                        <input type="date" class="form-control form-control-border" 
+                        name="start_date" id="start_date" placeholder="Start Date">
+                        @if($errors->has('start_date'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('start_date') }}
+                          </p>
+                        @endif
+                      </div>                     
+
+                      <div class="col-md-6 form-group">
+                        <label for="exampleInputBorderWidth2">End Date*</label>
+                        <input type="date" class="form-control form-control-border" 
+                        name="end_date" id="end_date" placeholder="End Date">
+                        @if($errors->has('end_date'))
+                          <p class="help-block text-danger">
+                            {{ $errors->first('end_date') }}
+                          </p>
+                        @endif
+                      </div>   
+                    </div>
+                    
+                    
                           
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">Submit</button>
@@ -133,7 +140,7 @@
                          
                     <!-- end of project data entry form -->
                   </form>
-								</div>
+								
 							</div>
 						  </div><!-- /.card-body -->
 						</div>
