@@ -22,6 +22,9 @@ use Carbon\Carbon;
 use Illuminate\Log\Logger;
 use Log;
 
+//Uuid import class
+use Illuminate\Support\Str;
+
 class StrainManagementController extends Controller
 {
     use HasRoles;
@@ -64,7 +67,7 @@ class StrainManagementController extends Controller
      */
     public function create()
     {
-      if( Auth::user()->hasAnyRole('pisg','pilg','piblg', 'manager') )
+      if( Auth::user()->hasAnyRole('manager') )
       {
           
         $species = Species::all();
@@ -110,6 +113,53 @@ class StrainManagementController extends Controller
      */
     public function store(Request $request)
     {
+      if( Auth::user()->hasAnyRole('pisg', 'manager') )
+      {
+          $input = $request->all();
+      
+              //Validate name and permissions field
+              $this->validate($request, [
+                'species_id' => 'required|numeric|min:1',
+                'strain_name' => 'required|regex:/^[a-zA-Z\s0-9-_\/]*$/|max:50',
+                'notes' => 'nullable|regex:/^[a-zA-Z\s0-9_-]*$/|max:200',
+                'dist' => 'required|numeric|min:1|max:2',
+                'perDiemCost' => 'required|numeric|min:0.00'
+              ]);
+      
+          $newStrain = new Strain();
+          $newStrain->uuid = Str::uuid()->toString();
+          $newStrain->species_id = $input['species_id'];
+          $newStrain->strain_name = $input['strain_name'];
+      
+          if($input['dist'] == 1)
+          {
+            $newStrain->distributable = 'yes';
+            $newStrain->owner_id = 0;
+          }
+          else {
+            $newStrain->distributable = 'no';
+            $newStrain->owner_id = 0; // correct it with actual user id
+          }
+          $newStrain->notes = $input['notes'];
+          //dd($newStrain);
+          $newStrain->save();
+      
+          $newStrainCost = new Cost();
+      
+          $newStrainCost->strain_id = $newStrain->strain_id;
+          $newStrainCost->species_id = $input['species_id'];
+          $newStrainCost->effective_cost_date = date('Y-m-d');
+          $newStrainCost->per_diem_cost = $input['perDiemCost'];
+      
+          $newStrainCost->save();
+      
+              return redirect()->route('strains.index')
+              ->with('flash_message',
+               'Strains added!');
+      }
+      else {
+        return view('errors.error401');
+      }
         //
     }
 

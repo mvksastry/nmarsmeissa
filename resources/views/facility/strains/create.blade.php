@@ -62,14 +62,14 @@
                           <div class="form-group col">
                               <label for="exampleInputBorderWidth2">Species*</label>
                               <select class="custom-select form-control rounded-1" 
-                                name="building" id="building">
+                                name="species_id" id="species_id">
                                 @foreach($species as $row)
                                   <option value="{{ $row->species_id }}">{{ $row->species_name }}</option>
                                 @endforeach
                               </select>
-                              @if($errors->has('building'))
+                              @if($errors->has('species_id'))
                                 <p class="help-block text-danger">
-                                  {{ $errors->first('building') }}
+                                  {{ $errors->first('species_id') }}
                                 </p>
                               @endif
                           </div>
@@ -77,10 +77,10 @@
                           <div class="col-xs-12 form-group">
                             <label for="exampleInputBorderWidth2">Strain Name*</label>
                             <input type="text" class="form-control form-control-border" 
-                            name="floor" id="floor" value="{{ old('floor') }}" placeholder="Strain Name">
-                            @if($errors->has('floor'))
+                            name="strain_name" id="strain_name" value="{{ old('strain_name') }}" placeholder="Strain Name">
+                            @if($errors->has('strain_name'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('floor') }}
+                                {{ $errors->first('strain_name') }}
                               </p>
                             @endif
                           </div>
@@ -99,14 +99,14 @@
                           <div class="form-group col">
                               <label for="exampleInputBorderWidth2">Distributable*</label>
                               <select class="custom-select form-control rounded-1" 
-                                name="building" id="building">
-                                
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                name="dist" id="dist">
+                                <option value="0">Select</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
                               </select>
-                              @if($errors->has('building'))
+                              @if($errors->has('dist'))
                                 <p class="help-block text-danger">
-                                  {{ $errors->first('building') }}
+                                  {{ $errors->first('dist') }}
                                 </p>
                               @endif
                           </div>
@@ -114,10 +114,10 @@
                           <div class="col-xs-12 form-group">
                             <label for="exampleInputBorderWidth2">Per-Diem-Cost*</label>
                             <input type="text" class="form-control form-control-border" 
-                            name="notes" id="notes" value="{{ old('notes') }}" placeholder="Per-diem-cost">
-                            @if($errors->has('notes'))
+                            name="perDiemCost" id="perDiemCost" value="{{ old('perDiemCost') }}" placeholder="Per-diem-cost">
+                            @if($errors->has('perDiemCost'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('notes') }}
+                                {{ $errors->first('perDiemCost') }}
                               </p>
                             @endif
                           </div>
