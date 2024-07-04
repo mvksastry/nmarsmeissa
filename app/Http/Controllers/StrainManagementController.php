@@ -120,7 +120,7 @@ class StrainManagementController extends Controller
               //Validate name and permissions field
               $this->validate($request, [
                 'species_id' => 'required|numeric|min:1',
-                'strain_name' => 'required|regex:/^[a-zA-Z\s0-9-_\/]*$/|max:50',
+                'strain_name' => 'required|regex:/^[a-zA-Z\s0-9-_.\/]*$/|max:50',
                 'notes' => 'nullable|regex:/^[a-zA-Z\s0-9_-]*$/|max:200',
                 'dist' => 'required|numeric|min:1|max:2',
                 'perDiemCost' => 'required|numeric|min:0.00'
