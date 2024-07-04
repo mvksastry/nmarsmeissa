@@ -75,7 +75,7 @@ trait ProjectSubmission
         $tempProj->iaec_comments = 'None';
         $tempProj->notes         = $notes;
         $tempProj->filename      = $filename;
-        $tempProj->status        = 'Submitted';
+        $tempProj->status        = 'submitted';
 
         $tempProj->save();
         //dd($tempProj);
