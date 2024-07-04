@@ -16,6 +16,6 @@ trait Openstrains
 {
 	function strains_open()
 	{
-		return Strain::with('species')->where('distributable', 'yes')->get();
+		return Strain::with('species')->where('distributable', 'yes')->get()->sortBy('species_id');
 	}
 }

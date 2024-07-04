@@ -72,8 +72,8 @@ class StrainManagementController extends Controller
           
         $species = Species::all();
         
-        $strains = Strain::with('species')->with('user')->get();
-        
+        $strains = Strain::with('species')->with('user')->groupBy('species_id');
+       
         return view('facility.strains.create')
           ->with('species', $species)
           ->with('strains', $strains);

@@ -36,7 +36,15 @@ trait ProjectSubmission
     $aprojecttitle    = $request['title'];
     $aStDate          = date('Y-m-d',strtotime($request['start_date']));
     $aendate          = date('Y-m-d',strtotime($request['end_date']));
-    
+    $inp = $request->all();
+    //dd($inp, $tickedStrains);
+    //foreach($tickedStrains as $val)
+    //{
+      //$darr = explode("_", $val);
+      //$ticketStrainYearData[$darr[1]] = $inp[$darr[1]];
+    //}
+    //dd($ticketStrainYearData);
+ 
     if($spcomments == NULL || $spcomments == "")
     {
       $spcomments = "No comments";
@@ -44,8 +52,9 @@ trait ProjectSubmission
        
       $notes = $this->addTimeStamp($spcomments);
       // prepping complete
-      $tempStrainSqls = $this->decodeStrainData($tickedSpecies, $tickedStrains, $request);
+      $tempStrainSqls = $this->decodeStrainData($tickedSpecies, $tickedStrains, $request);      
       //dd($tempStrainSqls);
+
       if($purpose == 'new')
       {
         //make the array for database insert query
@@ -127,6 +136,7 @@ trait ProjectSubmission
             //number of yearwise entries cannot exceed
             //duratin of the project. check the entries throw an error
             //if not matched
+            
             $strainYearwiseData = $this->validateStrainYearwiseData($t3array);
             if(array_sum($strainYearwiseData) != 0)
             {
@@ -156,7 +166,8 @@ trait ProjectSubmission
 
   public function validateStrainYearwiseData($strainYearData)
   {
-    for($i=0; $i < count ($strainYearData); $i++)
+    $tc = count($strainYearData);
+    for($i=0; $i < $tc; $i++)
     {
       $strainYearData[$i] = preg_replace('/\D/', '', $strainYearData[$i]);
       if ($strainYearData[$i] == null)
@@ -175,6 +186,7 @@ trait ProjectSubmission
 
   private function processUnsetArray($input_array)
   {
+    
     foreach($input_array as $key => $value)
     {
       if($value == "")
