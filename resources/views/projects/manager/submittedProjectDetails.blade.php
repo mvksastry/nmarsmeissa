@@ -157,7 +157,9 @@
                         <td class="text-wrap text-sm">View File</td>
                         <td class="text-wrap text-sm">								
                           <a href="{{ route('managerSubProject.download', $subProject->filename ) }}">
-                              View Project File
+                            <button type="button" class="btn btn-sm btn-primary">
+                            View Project File
+                            </button>                                                   
                           </a>
                         </td>
                       </tr>
