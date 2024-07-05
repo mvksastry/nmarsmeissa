@@ -305,6 +305,14 @@ Route::middleware(['auth','verified'])->group(function() {
     Route::get('/review-inventory', ReviewInventory::class);
     Route::get('/log-book', LogBook::class);
 
+    // -- Download controller actions only -- //
+    Route::get('/managerdownload/{id}', [DownloadController::class, 'getSubProjFile'])->name('managerSubProject.download');
+    Route::get('/adminDownload/{id}', [DownloadController::class, 'getProjFile'])->name('adminProject.download');
+    Route::get('/tpdownload/{id}', [DownloadController::class, 'getPiTempProjFile'])->name('pitempproject.download');
+    Route::get('/download/{id}', [DownloadController::class, 'getPiProjFile'])->name('piproject.download');
+    Route::get('/report/{id}', [DownloadController::class, 'getMaintainReportFile'])->name('maintenance.report');
+    // -------------- //
+
     //-- Super admin and Manager specific routes    
 		//Users routes
 		Route::resource('users', UsersController::class);	

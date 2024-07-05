@@ -151,14 +151,13 @@
                             Not Created 
                           @endif
                         </td>
-                      </tr>                 
+                      </tr>  
+                      
                       <tr>
                         <td class="text-wrap text-sm">View File</td>
                         <td class="text-wrap text-sm">								
-                          <a href="$">
-                            <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs text-gray-900 btn-info">
+                          <a href="{{ route('managerSubProject.download', $subProject->filename ) }}">
                               View Project File
-                            </button>
                           </a>
                         </td>
                       </tr>
