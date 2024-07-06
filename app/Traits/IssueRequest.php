@@ -118,6 +118,9 @@ trait IssueRequest
     $issueRequest['number']       = $input['number'];
     $issueRequest['cagenumber']   = $input['cagenumber'];
     $issueRequest['termination']  = $input['termination'];
+    $issueRequest['duration']     = $input['duration'];
+    $issueRequest['duration_unit']= "weeks";
+    $issueRequest['expt_desc']    = $input['expt_desc'];
     $issueRequest['products']     = $input['products'];
     $issueRequest['remarks']      = $input['remarks'];
     $issueRequest['status_date']  = $input['status_date'];

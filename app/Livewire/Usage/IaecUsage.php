@@ -51,7 +51,8 @@ class IaecUsage extends Component
     public $strain_name, $sex, $age, $ageunit, $number, $cagenumber;
     public $termination, $products, $remarks, $status_date;
     public $issue_status, $created_at, $updated_at, $psbi, $agree;
-
+    public $duration, $duration_unit, $expt_desc;
+    
     public $updateMode = false, $cageInfo, $cageAndLayout;
 
     public $rack_id, $cage_id, $ro_own, $slots, $occups, $rackInfo, $slotInfo, $layoutPiCage;
@@ -131,6 +132,9 @@ class IaecUsage extends Component
       $this->number = $issueReq->number;
       $this->cagenumber = $issueReq->cagenumber;
       $this->termination = $issueReq->termination;
+      $this->duration = $issueReq->duration;
+      $this->duration_unit = $issueReq->duration_unit;
+      $this->expt_desc = $issueReq->expt_desc;
       $this->products = $issueReq->products;
       $this->remarks = $issueReq->remarks;
       $this->issue_status = $issueReq->issue_status;
@@ -171,6 +175,12 @@ class IaecUsage extends Component
       $input['termination'] = $this->termination;
       $this->validate(['termination' => 'required|regex:/^[\pL\s\- ;0-9_]+$/u|max:150']);
 
+      $input['duration'] = $this->duration;
+      $this->validate(['duration' => 'required|regex:/^[0-9]+$/u|max:52']);
+      
+      $input['expt_desc'] = $this->expt_desc;
+      $this->validate(['expt_desc' => 'required|regex:/^[\pL\s\- .,;0-9_]+$/u|max:500']);
+ 
       $input['products'] = $this->products;
       $this->validate(['products' => 'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:150']);
 

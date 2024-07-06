@@ -59,7 +59,7 @@ class IaecProjects extends Component
     public $pstx, $pstx1, $irqMessage, $swc, $formD, $nbes, $nbimages;
     public $strains, $sex, $age, $ageunit, $number, $cagenumber, $termination;
     public $products, $remarks, $agree, $issueConfirmed, $cageProjectCostInfos;
-    public $duration;
+    public $duration, $expt_desc;
     
     public $ic, $pc, $projfile, $projReps, $breederId, $exptdesc1;
 
@@ -210,7 +210,10 @@ class IaecProjects extends Component
 
           $input['duration'] = $this->duration;
           $this->validate(['duration' => 'required|regex:/^[0-9]+$/u|max:52']);
-
+          
+          $input['expt_desc'] = $this->expt_desc;
+          $this->validate(['expt_desc' => 'required|regex:/^[\pL\s\- .,;0-9_]+$/u|max:500']);
+          
           $input['products'] = $this->products;
           $this->validate(['products' => 'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:150']);
 
@@ -260,6 +263,7 @@ class IaecProjects extends Component
                 'cagenumber' =>  'required|numeric|max:30',
                 'termination' => 'required|regex:/^[\pL\s\- ;0-9_]+$/u|max:150',
                 'duration' =>    'required|numeric|max:52',
+                'expt_desc' =>   'required|regex:/^[\pL\s\- .,;0-9_]+$/u|max:500',
                 'products' =>    'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:150',
                 'remarks' =>     'required|regex:/^[\pL\s\- ,;0-9_]+$/u|max:250',
                 'agree' =>       'required|numeric|max:2'
@@ -374,6 +378,8 @@ class IaecProjects extends Component
           $this->number = '';
           $this->cagenumber = '';
           $this->termination = '';
+          $this->duration;
+          $this->expt_desc;
           $this->products = '';
           $this->remarks = '';
           $this->agree = 0;

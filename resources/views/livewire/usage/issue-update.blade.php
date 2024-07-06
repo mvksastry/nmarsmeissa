@@ -156,6 +156,43 @@
 										@enderror
 									</td>
 								</tr>
+                
+						    <tr>
+						      <td>
+						        Duration
+						      </td>
+						      <td>
+										<input type="text" class="form-control shadow border rounded id="termination" placeholder="Duration" wire:model="duration"> {{ $duration_unit }}
+						      </td>
+						    </tr>
+								<tr>
+									<td colspan="2">
+										@error('duration')
+											<span>
+												{{ $message }}
+											</span>
+										@enderror
+									</td>
+								</tr>                
+
+						    <tr>
+						      <td>
+						        Expt Description
+						      </td>
+						      <td>
+										<input type="text" class="form-control shadow border rounded id="termination" placeholder="Description" wire:model="expt_desc">
+						      </td>
+						    </tr>
+								<tr>
+									<td colspan="2">
+										@error('duration')
+											<span>
+												{{ $message }}
+											</span>
+										@enderror
+									</td>
+								</tr>                
+                
 						    <tr>
 						      <td>
 						        Animal Products

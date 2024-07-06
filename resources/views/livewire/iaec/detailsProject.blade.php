@@ -387,6 +387,15 @@
 	                </td>
 	              </tr>
 
+	              <tr>
+	                <td>
+	                  Expt Description (Cryptic)
+	                </td>
+	                <td>
+									<input type="text" class="form-control shadow border rounded" id="expt_desc" placeholder="Cryptic Description " wire:model="expt_desc">
+	                </td>
+	              </tr>
+                
 								<tr>
 									<td>
 									</td>
