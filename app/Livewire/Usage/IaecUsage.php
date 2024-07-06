@@ -155,7 +155,7 @@ class IaecUsage extends Component
       $input['strain_id'] = $xs[1];
 
       $input['usage_id'] = $this->usage_id;
-      $input['project_id'] = $this->project_id;
+      $input['project_id'] = $this->iaecproject_id;
       $input['pi_id'] = Auth::id();
       $input['sex'] = $this->sex;
       $this->validate(['sex' => 'required|alpha']);

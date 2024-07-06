@@ -126,9 +126,9 @@ trait IssueRequest
     $issueRequest['status_date']  = $input['status_date'];
     $issueRequest['issue_status'] = $input['issue_status'];
 			                      										
-    if($input['issue_id'] != null)
+    if($input['usage_id'] != null)
 		{
-			$result = Usage::where('issue_id', $input['issue_id'])->update($issueRequest);
+			$result = Usage::where('usage_id', $input['usage_id'])->update($issueRequest);
 		}
 		else {
 			$result = Usage::create($issueRequest);

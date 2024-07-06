@@ -241,7 +241,7 @@
 								</tr>
 						    <tr>
 						      <td colspan="2">
-										<button wire:click.prevent="store()" class="bt btn-success rounded">Submit</button>
+										<button wire:click.prevent="store()" class="btn btn-success rounded">Submit</button>
 						      </td>
 						    </tr>
             	</table>
