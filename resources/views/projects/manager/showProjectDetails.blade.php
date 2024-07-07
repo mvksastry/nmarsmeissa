@@ -368,8 +368,9 @@
                         <td class="text-wrap text-center text-sm"> Breeder Address</td>
                         <td class="text-wrap text-center text-sm"> IAEC Approval </td>
                         <td class="text-wrap text-center text-sm"> Duration of Expt </td>
-                        <td class="text-wrap text-center text-sm"> Auth. Person </td>
-                        <td class="text-wrap text-center text-sm"> Auth. Signature</td>
+                        
+                        <td class="text-wrap text-center text-sm"> Expt. Description</td>
+                        <td class="text-wrap text-center text-sm"> Auth. Person & Auth. Signature</td>
                       </tr>
 											
 												@foreach($formd as $val)
@@ -391,10 +392,10 @@
                           {{ $val->duration }} weeks
                           </td>
                           <td class="text-wrap text-center text-sm">
-														{{ $val->authorized_person }}
+														{{ $val->expt_desc }}
                           </td>
                           <td class="text-wrap text-center text-sm">
-														Auto Signed
+														{{ $val->authorized_person }}, Auto Signed
                           </td>
                         </tr>
 												@endforeach
