@@ -47,6 +47,15 @@ trait Base
     
     return $diff;
 	}
+  
+  public function addWeeksToDate($duration)
+  {
+    $phrase = "+".$duration." weeks";
+    
+    $weeksLaterDate = date('Y-m-d', strtotime($phrase));
+    
+    return $weeksLaterDate;
+  }
 
 	public function weekDaysBetweenTwoDates($startDate, $endDate)
 	{

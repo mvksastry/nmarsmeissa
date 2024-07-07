@@ -29,7 +29,7 @@ trait AccordIssueDecision
 		case 0:
 			$irq = Usage::findOrfail($input['usage_id']);
 			$irq->remarks = $input['remarks'];
-            $irq->update();
+      $irq->update();
 			$msg = "Remarks Posted, Usage Approval Pending";
 			return $msg;
 		break;

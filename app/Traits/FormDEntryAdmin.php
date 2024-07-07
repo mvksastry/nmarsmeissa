@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Issue;
 use App\Models\Iaecproject;
 use App\Models\Projectstrains;
+use App\Models\Usage;
 
 use App\Traits\Base;
 use App\Traits\Notes;
@@ -22,8 +23,8 @@ trait FormDEntryAdmin
 		{
 			$iaecproject_id = $row->iaecproject_id;
 			$formD['usage_id'] = $input['usage_id'];
-			$formD['staff_id'] = $row->pi_id;
-			//$formD['staff_name'] = "";
+      $formD['staff_id'] = $row->pi_id;
+			
 			$formD['entry_date'] = date('Y-m-d');
 			$formD['req_anim_number'] = $row->number;
 			$formD['species'] = $row->species->species_id;
@@ -31,13 +32,16 @@ trait FormDEntryAdmin
 			$formD['sex'] = $row->sex;
 			$formD['age'] = $row->age;
 			$formD['ageunit'] = $row->ageunit;
-			$formD['breeder_add'] = "to be inserted";
+			$formD['breeder_add'] = "EAF, NCCS, Pune-411007";
 			$formD['approval_date'] = date('Y-m-d');
 			$formD['expt_start_date'] = date('Y-m-d');
-      $formD['expt_end_date'] = date('Y-m-d');
-			//$formD['expt_description'] = $row->species->species_name." issued";
-			//$formD['authorized_person'] = $row->user->id;
-			//$formD['signature'] = $row->user->id;
+      
+      //dates and description
+      $usageObj = Usage::where('usage_id', $input['usage_id'])->first();
+      
+      $formD['expt_desc'] = $usageObj->expt_desc;
+      $formD['expt_end_date'] = $this->addWeeksToDate($usageObj->duration);
+			
 			$formD['remarks'] = $input['remarks'];
 			$res = Iaecproject::with('user')->where('iaecproject_id',$iaecproject_id)->first();
 			foreach($res as $x)

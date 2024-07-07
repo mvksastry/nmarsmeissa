@@ -59,6 +59,10 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <td>Usage Request Id</td>
+                          <td>{{ $usageRequest->usage_id }}</td>
+                        </tr>
+                        <tr>
                           <td>Project Id</td>
                           <td>{{ $usageRequest->iaecproject_id }}</td>
                         </tr>
@@ -89,6 +93,14 @@
                         <tr>
                           <td>Termination</td>
                           <td>{{ $usageRequest->termination }}</td>
+                        </tr>
+                        <tr>
+                          <td>Duration</td>
+                          <td>{{ $usageRequest->duration }} week(s)</td>
+                        </tr>
+                        <tr>
+                          <td>Expt Description</td>
+                          <td>{{ $usageRequest->expt_desc }}</td>
                         </tr>
                         <tr>
                           <td>Products</td>
