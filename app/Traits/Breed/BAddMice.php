@@ -21,7 +21,7 @@ trait BAddMice
 {
     use BBase;
 
-	use BCVTerms;
+    use BCVTerms;
 
 	    /* Before addition, we must do the following.
        1. First add a cage to the system.
@@ -108,7 +108,7 @@ public function addMice($input)
     {
       $phenotypes_Selected = array();
     }
-      if(empty($use_schedulSelected))
+    if(empty($use_schedulSelected))
     {
       $use_schedulSelected  = array();
     }
@@ -389,7 +389,7 @@ public function addMice($input)
                      *  3. if a match occurs, keep that entry.
                      *  4. if no match, then delete that entry in the db.
                      */
-				    Log::channel('coding')->info("phenotype keys present in DB");
+                    Log::channel('coding')->info("phenotype keys present in DB");
 
                     $phenotypeKeysToBeKept = array_intersect($phenotypes_Selected, $phenotypeKeysInDB);
                     //echo "phenotype keys to be retained"; print_r($phenotypeKeysToBeKept);echo "</br>";
@@ -433,7 +433,7 @@ public function addMice($input)
 
                             $result2 = $newPhenotypeMouseLink->save();
 
-						Log::channel('coding')->info("New PhenotypeMouseLink key [ ".$maxPhenotypeMouseLinkKey." ] inserted");
+                            Log::channel('coding')->info("New PhenotypeMouseLink key [ ".$maxPhenotypeMouseLinkKey." ] inserted");
                         //$maxPhenotypeMouseLinkKey = $maxPhenotypeMouseLinkKey +1;
                     }
 

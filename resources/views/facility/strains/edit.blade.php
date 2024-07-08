@@ -64,10 +64,10 @@
                            <div class="col-xs-12 form-group">
                             <label for="exampleInputBorderWidth2">Species Name*</label>
                             <input type="text" class="form-control form-control-border" 
-                            name="floor" id="floor" value="{{ $strain->species->species_name }}    " placeholder="Strain Name">
-                            @if($errors->has('floor'))
+                            name="species" id="species" value="{{ $strain->species->species_name }}" placeholder="Species Name">
+                            @if($errors->has('species'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('floor') }}
+                                {{ $errors->first('species') }}
                               </p>
                             @endif
                           </div>
@@ -75,10 +75,10 @@
                           <div class="col-xs-12 form-group">
                             <label for="exampleInputBorderWidth2">Strain Name*</label>
                             <input type="text" class="form-control form-control-border" 
-                            name="floor" id="floor" value="{{ $strain->strain_name }}" placeholder="Strain Name">
-                            @if($errors->has('floor'))
+                            name="strain_name" id="strain_name" value="{{ $strain->strain_name }}" placeholder="Strain Name">
+                            @if($errors->has('strain_name'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('floor') }}
+                                {{ $errors->first('strain_name') }}
                               </p>
                             @endif
                           </div>
@@ -97,17 +97,27 @@
                           <div class="form-group col">
                               <label for="exampleInputBorderWidth2">Distributable*</label>
                               <select class="custom-select form-control rounded-1" 
-                                name="building" id="building">
-                                
+                                name="dist" id="dist">
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                               </select>
-                              @if($errors->has('building'))
+                              @if($errors->has('dist'))
                                 <p class="help-block text-danger">
-                                  {{ $errors->first('building') }}
+                                  {{ $errors->first('dist') }}
                                 </p>
                               @endif
                           </div>
+
+
+
+
+
+
+
+
+
+
+
                           
 												<div class="card-footer">
 													<button type="submit" class="btn btn-primary">Submit</button>

@@ -24,11 +24,41 @@ class Strain extends Model
      * @var array
      */
     protected $fillable = [
-		'species_id',
-		'strain_name',
-		'distributable',
-		'owner_id',
-		'notes'
+      'uuid',
+      'species_id',
+      'strain_name',
+      'strain_nickname',
+      'strain_formalname',
+      'distributable'.
+      'owner_id',
+      'notes',
+      'isActive',
+      'strainStatus',
+      'tagMin',
+      'tagMax',
+      'lastTag',
+      'jrNum',
+      'feNumEmbryos',
+      'feMaxGen',
+      'fsNumMales',
+      'fsMaxGen',
+      'foNumFemales',
+      'foMaxGen',
+      'cardColor',
+      'strainType',
+      'comment',
+      'lineViabilityYellowMinNumMales',
+      'lineViabilityYellowMinNumFemales',
+      'lineViabilityYellowMaxAgeMales',
+      'lineViabilityYellowMaxAgeFemales',
+      'lineViabilityRedMinNumMales',
+      'lineViabilityRedMinNumFemales',
+      'lineViabilityRedMaxAgeMales',
+      'lineViabilityRedMaxAgeFemales',
+      'version',
+      'section_',
+      'created_at',
+      'updated_at',    
     ];
 		
     public function species()
@@ -51,11 +81,41 @@ class Strain extends Model
 
     // Only defined attribute will store in log while any change
     protected static $logAttributes = [
+      'uuid',
       'species_id',
       'strain_name',
-      'distributable',
+      'strain_nickname',
+      'strain_formalname',
+      'distributable'.
       'owner_id',
-      'notes'
+      'notes',
+      'isActive',
+      'strainStatus',
+      'tagMin',
+      'tagMax',
+      'lastTag',
+      'jrNum',
+      'feNumEmbryos',
+      'feMaxGen',
+      'fsNumMales',
+      'fsMaxGen',
+      'foNumFemales',
+      'foMaxGen',
+      'cardColor',
+      'strainType',
+      'comment',
+      'lineViabilityYellowMinNumMales',
+      'lineViabilityYellowMinNumFemales',
+      'lineViabilityYellowMaxAgeMales',
+      'lineViabilityYellowMaxAgeFemales',
+      'lineViabilityRedMinNumMales',
+      'lineViabilityRedMinNumFemales',
+      'lineViabilityRedMaxAgeMales',
+      'lineViabilityRedMaxAgeFemales',
+      'version',
+      'section_',
+      'created_at',
+      'updated_at',
     ];
 
     // Customize log description

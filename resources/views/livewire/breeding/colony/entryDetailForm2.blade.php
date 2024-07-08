@@ -87,7 +87,7 @@
               <select wire:model.lazy="_strain_key" name="_strain_key" id="_strain_key">
                 <option value=""></option>
                 @foreach($strains as $item)
-                  <option value="{{ $item->_strain_key }}">{{ $item->strainName." : ".$item->jrNum }}</option>
+                  <option value="{{ $item->strain_id }}">{{ $item->strain_name." : ".$item->jrNum }}</option>
                 @endforeach
               </select>
             </td>

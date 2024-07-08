@@ -21,7 +21,8 @@ use App\Models\Room;
 use App\Models\Breeding\Cvterms\CVSpecies;
 use App\Models\Breeding\Cvterms\Usescheduleterm;
 use App\Models\Breeding\Cvterms\CVProtocol;
-use App\Models\Breeding\Cvterms\Strain;
+//use App\Models\Breeding\Cvterms\Strain;
+use App\Models\Strain;
 use App\Models\Breeding\Cvterms\CVGeneration;
 use App\Models\Breeding\Cvterms\CVPhenotype;
 use App\Models\Breeding\Cvterms\Lifestatus;
@@ -90,7 +91,7 @@ class AddEntry extends Component
 		$this->speciesName = $q1->species;
 		$this->useScheduleTerms = UseScheduleTerm::all();
 		$this->protocols = CVProtocol::where('_species_key', $id)->get();
-		$this->strains = Strain::where('_species_key', $id)->get();
+		$this->strains = Strain::where('species_id', $id)->get();
 		$this->generations = CVGeneration::all();
 		$this->phenotypes = CVPhenotype::where('_species_key', $id)->get();
 		$this->lifestatus = Lifestatus::all();

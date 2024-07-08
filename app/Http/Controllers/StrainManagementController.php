@@ -262,7 +262,7 @@ class StrainManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-      if( Auth::user()->hasAnyRole('pisg','pilg','piblg', 'manager') )
+      if( Auth::user()->hasAnyRole('pisg','piblg', 'manager') )
       {
         $input = $request->all();
         $checkedStrainsIds = $input['strain_id'];
