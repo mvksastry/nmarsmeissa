@@ -49,7 +49,7 @@
 						  <div class="card-body">
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
-								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+								<div class="table-responsive" id="revenue-chart" style="position: relative;">
 
 
 
@@ -99,6 +99,9 @@
 										No Information to display
 									@endif
 
+
+
+
 								</div>
 							</div>
 						  </div><!-- /.card-body -->
@@ -137,7 +140,7 @@
 						  <div class="card-body">
 							<div class="tab-content p-0">
 								<!-- Morris chart - Sales -->
-								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
+								<div class="table-responsive" id="revenue-chart2" style="position: relative;">
 
 									@if( count($activeProjects) > 0 )
 										<table id="userIndex2" class="table table-bordered table-hover">
