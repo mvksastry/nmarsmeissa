@@ -38,7 +38,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-      $rooms = Room::all();
+      $rooms = Room::with('building')->with('floor')->get();
       //dd($rooms);
       return view('facility.rooms.index')->with(['rooms'=>$rooms]);
     }

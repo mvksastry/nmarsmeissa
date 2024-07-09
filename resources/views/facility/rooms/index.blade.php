@@ -63,8 +63,8 @@
                           <input type="checkbox" id="select-all" />
                           </th>
 													
-                          <th>Building ID</th>
-													<th>Floor Id</th>
+                          <th>Building</th>
+													<th>Floor</th>
 													<th>Room Name</th>
 													<th>Notes</th>
                           <th>Image</th>
@@ -73,13 +73,12 @@
 											<tbody>
 												@foreach($rooms as $room)
                         <?php 
-                          $roomPath = "storage/facility/rooms/".$room->image_id;
-                          $path = "/facility/roooms/".$room->image_id; 
+                          $roomPath = "storage/facility/rooms/".$room->image_id; 
                         ?>
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
                             <td></td>
-                            <td>{{ $room->building_id }}</td>
-                            <td>{{ $room->floor_id }}</td>
+                            <td>{{ $room->building->building_name }}</td>
+                            <td>{{ $room->floor->floor_name }}</td>
                             <td>{{ $room->room_name }}</td>
                             <td>{{ $room->notes }}</td>
                             <td>
