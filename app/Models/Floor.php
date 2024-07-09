@@ -24,6 +24,7 @@ class Floor extends Model
     * @var array
     */
     protected $fillable = [
+      'building_id',
       'floor_name',
       'notes'				
     ];
