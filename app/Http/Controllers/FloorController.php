@@ -51,7 +51,7 @@ class FloorController extends Controller
       $this->validate($request, [
         'building' => 'required|numeric|min:1',
         'floor' => 'required|alpha_dash|max:15',
-        'notes' => 'nullable|alpha_dash|max:15'
+        'notes' => 'nullable|alpha_dash|max:255'
       ]);
 
       $floor = new Floor();
@@ -60,7 +60,7 @@ class FloorController extends Controller
       $floor->notes = $request['notes'];
       $floor->save();
 
-      return redirect()->route('roomsnracks.index')
+      return redirect()->route('floor.index')
                         ->with('flash_message',
                         'Floor'. $floor->floor_name.' added!');
     }
