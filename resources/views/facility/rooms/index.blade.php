@@ -73,7 +73,7 @@
 											<tbody>
 												@foreach($rooms as $room)
                         <?php 
-                          $roomPath = "storage/facility/rooms/".$room->image_id; 
+                          $roomPath = "/storage/facility/rooms/".$room->image_id; 
                         ?>
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
                             <td></td>
