@@ -66,8 +66,7 @@ trait Fileupload
     
     public function uploadRoomImageFile($request)
     {
-      $basepath = "/app/public/";
-      $destPath = $basepath."facility/rooms/";
+      $destPath = "public/facility/rooms/";
       $oExt     = $request->file('imageFile')->getClientOriginalExtension();
       $fileName = time().".".$oExt;
       $path     = $request->file('imageFile')->storeAs($destPath, $fileName);
