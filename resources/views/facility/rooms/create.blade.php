@@ -58,20 +58,20 @@
 
 										<div class="card-body">
                     
-											<form method="POST" action="{{ route('room.store') }}">
+											<form method="POST" action="{{ route('room.store') }}" enctype="multipart/form-data">>
 												@csrf
 
                           <div class="form-group col">
-                            <label for="exampleInputBorderWidth2">Buildings*</label>
+                            <label for="exampleInputBorderWidth2">Building*</label>
                             <select class="custom-select form-control rounded-1" 
-                              name="building" id="building">
+                              name="building_id" id="building_id">
                               @foreach($buildings as $row)
                                 <option value="{{ $row->building_id }}">{{ $row->building_name }}</option>
                               @endforeach
                             </select>
-                            @if($errors->has('building'))
+                            @if($errors->has('building_id'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('building') }}
+                                {{ $errors->first('building_id') }}
                               </p>
                             @endif
                           </div>
@@ -92,12 +92,12 @@
                           </div>
                           
                           <div class="col-xs-12 form-group">
-                            <label for="exampleInputBorderWidth2">Floor Name*</label>
+                            <label for="exampleInputBorderWidth2">Room Name*</label>
                             <input type="text" class="form-control form-control-border" 
-                            name="floor" id="floor" value="{{ old('floor') }}" placeholder="Floor Name">
-                            @if($errors->has('floor'))
+                            name="room" id="room" value="{{ old('room') }}" placeholder="Room Name">
+                            @if($errors->has('room'))
                               <p class="help-block text-danger">
-                                {{ $errors->first('floor') }}
+                                {{ $errors->first('room') }}
                               </p>
                             @endif
                           </div>
@@ -117,14 +117,18 @@
                             <label for="exampleInputFile">Room Image*</label>
                             <div class="input-group">
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                <input type="file" class="custom-file-input" name="imageFile" id="imageFile">
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                @if($errors->has('imageFile'))
+                                  <p class="help-block text-danger">
+                                    {{ $errors->first('imageFile') }}
+                                  </p>
+                                @endif
                               </div>
+                              
                             </div>
                           </div>
-									
-
-                  
+									                  
 												<div class="card-footer">
 													<button type="submit" class="btn btn-primary">Submit</button>
 												</div>

@@ -16,21 +16,31 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
 
+use App\Traits\Fileupload;
+
 use Carbon\Carbon;
 use Illuminate\Log\Logger;
 use Log;
 
+//use File;
+use Validator;
+
+//Uuid import class
+use Illuminate\Support\Str;
 
 class RoomController extends Controller
 {
     use HasRoles;
+    use Fileupload;
     
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-      return view('facility.rooms.index');
+      $rooms = Room::all();
+      //dd($rooms);
+      return view('facility.rooms.index')->with(['rooms'=>$rooms]);
     }
 
     /**
@@ -50,40 +60,28 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //Validate name and permissions field
-        $this->validate($request, [
-          'room' =>  'required|regex:/(^[A-Za-z0-9 -_]+$)+/|max:25',
-        	'notes' => 'nullable|regex:/(^[A-Za-z0-9 -_]+$)+/|max:250'
-        ]);
+      $this->validate($request, [
+        'building_id' => 'required|regex:/(^[0-9]+$)+/|max:25',
+        'floor_id' => 'required|regex:/(^[0-9]+$)+/|max:25',
+        'room' =>  'required|regex:/(^[A-Za-z0-9 .,-_]+$)+/|max:25',
+        'notes' => 'nullable|regex:/(^[A-Za-z0-9 .,-_]+$)+/|max:250',
+        'imageFile' => 'required|image|mimes:jpeg,png,jpg|max:1048',
+      ]);
         
-        //upload image file here
-        $image = $request->file('userfile');
-        
-        $request->validate([
-        'userfile' => 'required|image|mimes:jpeg,png,jpg|max:1048',
-        ]);
-        
-        $oExt = $request->file('userfile')->getClientOriginalExtension();
-        
-        $imageName = time().'.'.$oExt;
-        
+      if( $request->hasFile('imageFile') )
+      {
+        $filename = $this->uploadRoomImageFile($request);
 
-        $folder = "rooms";
-        $destPath = "/facility/".$folder."/";
-    
-        $path = $request->file('userfile')->storeAs($destPath, $imageName);
-        
-        
         /* Store $imageName name in DATABASE from HERE */
         $room = new Room();
-        $room->building_id = 1;
-        $room->floor_id = 1;
+        $room->uuid = Str::uuid()->toString();
+        $room->building_id = $request['building_id'];
+        $room->floor_id = $request['floor_id'];
         $room->room_name = $request['room'];
+        $room->image_id = $filename;
         $room->notes = $request['notes'];
-        $room->image_id = $imageName;
-        
         $room->save();
-        
+      }  
         return redirect()->route('room.index')
         ->with('flash_message',
         'room'. $room->room_name.' added!');

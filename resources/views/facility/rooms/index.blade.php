@@ -53,7 +53,7 @@
 								<!-- Morris chart - Sales -->
 								<div class="chart tab-pane active" id="revenue-chart" style="position: relative;">
 
-
+                  @if(count($rooms) > 0)
 
 									
 										<table id="userIndex2" class="table table-bordered table-hover">
@@ -62,29 +62,35 @@
 													<th style="text-align:center;">
                           <input type="checkbox" id="select-all" />
                           </th>
-													<th></th>
-                          <th></th>
-													<th></th>
-													<th></th>
-													<th></th>
+													
+                          <th>Building ID</th>
+													<th>Floor Id</th>
+													<th>Room Name</th>
+													<th>Notes</th>
+                          <th>Image</th>
 												</tr>
 											</thead>
 											<tbody>
-												
+												@foreach($rooms as $room)
+                        <?php 
+                          $roomPath = "storage/facility/rooms/".$room->image_id;
+                          $path = "/facility/roooms/".$room->image_id; 
+                        ?>
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $room->building_id }}</td>
+                            <td>{{ $room->floor_id }}</td>
+                            <td>{{ $room->room_name }}</td>
+                            <td>{{ $room->notes }}</td>
+                            <td>
+                            <img class="inline m-1" src="{{ asset($roomPath) }}" alt="" width="48px" height="48px">
                           </tr>
-																	
+												@endforeach					
 											</tbody>
 										</table>                      
-									
+									@else
 										No Information to display
-									
+									@endif
 
 								</div>
 							</div>

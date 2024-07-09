@@ -63,5 +63,14 @@ trait Fileupload
       $path = $request->file('userfile')->storeAs($destPath, $projFileName);
       return $fileName;  
     }
+    
+    public function uploadRoomImageFile($request)
+    {
+      $destPath = "/facility/rooms/";
+      $oExt     = $request->file('imageFile')->getClientOriginalExtension();
+      $fileName = time().".".$oExt;
+      $path     = $request->file('imageFile')->storeAs($destPath, $fileName);
+      return $fileName;      
+    }
         
 }

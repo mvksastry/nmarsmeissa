@@ -24,7 +24,11 @@ class Room extends Model
     * @var array
     */
     protected $fillable = [
+    'uuid',
+    'building_id',
+    'floor_id',
 		'room_name',
+    'image_id',
 		'notes'				
     ];
 		
@@ -48,7 +52,11 @@ class Room extends Model
 
     // Only defined attribute will store in log while any change
     protected static $logAttributes = [
+    'uuid',
+    'building_id',
+    'floor_id',
 		'room_name',
+    'image_id',
 		'notes'
     ];
 
