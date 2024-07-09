@@ -44,6 +44,7 @@ class Floor extends Model
 
     // Only defined attribute will store in log while any change
     protected static $logAttributes = [
+    'building_id',
 		'floor_name',
 		'notes'
     ];

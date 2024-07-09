@@ -57,7 +57,7 @@
 										<!-- /.card-header -->
 
 										<div class="card-body">
-											<form method="POST" action="{{ route('building.store') }}">
+											<form method="POST" action="{{ route('floor.store') }}">
 												@csrf
 
 

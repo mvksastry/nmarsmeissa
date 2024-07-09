@@ -47,6 +47,8 @@ class FloorController extends Controller
      */
     public function store(Request $request)
     {
+      //$input = $request->all();
+      //dd($input);
       //Validate name and permissions field
       $this->validate($request, [
         'building' => 'required|numeric|min:1',
@@ -58,6 +60,7 @@ class FloorController extends Controller
       $floor->building_id = $request['building'];
       $floor->floor_name = $request['floor'];
       $floor->notes = $request['notes'];
+      //dd($floor);
       $floor->save();
 
       return redirect()->route('floor.index')
