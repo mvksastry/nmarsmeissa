@@ -83,7 +83,7 @@
                             <td>{{ $room->room_name }}</td>
                             <td>{{ $room->notes }}</td>
                             <td>
-                            <img class="inline m-1" src="{{ asset($proomPath.$room->image_id) }}" alt="" width="48px" height="48px">
+                            <img class="inline m-1" src="{{ asset($roomPath.$room->image_id) }}" alt="" width="48px" height="48px">
                           </tr>
 												@endforeach					
 											</tbody>
