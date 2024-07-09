@@ -74,6 +74,7 @@
 												@foreach($rooms as $room)
                         <?php 
                           $roomPath = "storage/facility/rooms/".$room->image_id; 
+                          $img = explode(".", $room->image_id);
                         ?>
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
                             <td></td>
@@ -82,7 +83,7 @@
                             <td>{{ $room->room_name }}</td>
                             <td>{{ $room->notes }}</td>
                             <td>
-                            <img class="inline m-1" src="{{ asset($roomPath) }}" alt="" width="48px" height="48px">
+                            <img class="inline m-1" src="{{ asset($roomPath).$img[1].png }}" alt="" width="48px" height="48px">
                           </tr>
 												@endforeach					
 											</tbody>
