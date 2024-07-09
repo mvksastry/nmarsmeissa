@@ -146,12 +146,12 @@
                       </tr>                 
                       <tr>
                         <td class="text-wrap text-sm">View File</td>
-                        <td class="text-wrap text-sm">								
-                          <a href="$">
-                            <button class="btn btn-xs bg-blue-600 hover:bg-gray-200 text-xs btn-info">
-                              View Project File
-                            </button>
-                          </a>
+                        <td class="text-wrap text-sm">			
+                          <a href="{{ route('managerSubProject.download', $iaecproject->filename ) }}">
+                            <button type="button" class="btn btn-sm btn-primary">
+                            View Project File
+                            </button>                                                   
+                          </a>                        
                         </td>
                       </tr>
                       <tr>
@@ -364,13 +364,19 @@
                     @if(count($formd) > 0)
                       <tr>
                         <td class="text-wrap text-center text-sm"> Date </td>
-                        <td class="text-wrap text-center text-sm"> Req.Animals </td>
-                        <td class="text-wrap text-center text-sm"> Breeder Address</td>
-                        <td class="text-wrap text-center text-sm"> IAEC Approval </td>
-                        <td class="text-wrap text-center text-sm"> Duration of Expt </td>
+                        <td class="text-wrap text-center text-sm"> No. of animals acquired (specify species, sex and age) </td>
+                        <td class="text-wrap text-center text-sm"> Name, Address and Registration No. of the Breeder from whom acquired with voucher, Bill No.
+                        fromAddress</td>
+                        <td class="text-wrap text-center text-sm"> 
+                        Date and IAEC Approval Number</td>
+                        <td class="text-wrap text-center text-sm"> 
+                        Duration of Expt and Expt. Description </td>
                         
-                        <td class="text-wrap text-center text-sm"> Expt. Description</td>
-                        <td class="text-wrap text-center text-sm"> Auth. Person & Auth. Signature</td>
+                        <td class="text-wrap text-center text-sm"> 
+                        Name and address of the person authorized to conduct the Experiment</td>
+                        <td class="text-wrap text-center text-sm"> 
+                        Signature of the investigatory certifying that all conditions 
+                        specified for such an experiment have been complied</td>
                       </tr>
 											
 												@foreach($formd as $val)
@@ -380,7 +386,7 @@
                           </td>
                           <td class="text-wrap text-center text-sm">
                             {{ $val->req_anim_number }}, {{ $val->species_name}},
-														{{ $val->strain_name }}, {{ $val->age." ".$val->ageunit}}
+														{{ $val->strain_name }}, {{$val->sex }}, {{ $val->age." ".$val->ageunit}}
                           </td>
                           <td class="text-wrap text-center text-sm">
                             {{ $val->breeder_add }}
@@ -389,13 +395,13 @@
                             {{ $val->approval_date }}
                           </td>
                           <td class="text-wrap text-center text-sm">
-                          {{ $val->duration }} weeks
+                          {{ $val->duration }} weeks; {{ $val->expt_desc }}
                           </td>
                           <td class="text-wrap text-center text-sm">
-														{{ $val->expt_desc }}
+														{{ $val->authorized_person }}, NCCS, Pune-411007
                           </td>
                           <td class="text-wrap text-center text-sm">
-														{{ $val->authorized_person }}, Auto Signed
+														 Auto Signed
                           </td>
                         </tr>
 												@endforeach

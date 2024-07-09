@@ -85,11 +85,11 @@ class AddLitter extends Component
     {
         $dob = date('Y-m-d');
         $this->dateBorn = $dob;
-        $this->weanDate = date('Y-m-d', strtotime($dob.' + 18 days '));
+        $this->weanDate = date('Y-m-d', strtotime($dob.' + 21 days '));
         $this->tagDate = date('Y-m-d');
     }
     else{
-        $this->weanDate = date('Y-m-d', strtotime($dob.' + 18 days '));
+        $this->weanDate = date('Y-m-d', strtotime($dob.' + 21 days '));
     }
   }
 
