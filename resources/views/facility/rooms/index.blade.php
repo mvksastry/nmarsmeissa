@@ -74,7 +74,6 @@
 												@foreach($rooms as $room)
                         <?php 
                           $roomPath = "storage/facility/rooms/"; 
-                          $proomPath = "public/facility/rooms/";
                         ?>
                           <tr bgcolor="#E1BEE7"   data-entry-id="">
                             <td></td>
