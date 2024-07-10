@@ -55,9 +55,11 @@
                   @if( count($rooms) > 0 )
                    <div class="p-2">
                     @foreach($rooms as $room)
+                    
                       <button wire:click="show('{{ $room->image_id }}')">
-                      <img class="inline m-1" src="{{ asset($roomPath.$room->image_id) }}" alt="" width="75px" height="75px">
+                      <img class="inline m-1 border border-primary" src="{{ asset($roomPath.$room->image_id) }}" alt="" width="75px" height="75px">
                       </button>
+                      
                     @endforeach
                     </div>
                   @else                  
