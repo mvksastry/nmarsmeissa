@@ -7,7 +7,7 @@
         <div class="small-box bg-info">
           <div class="inner">
             <h5>STRAINS</h5>
-            <p>Free: {{$freeStrains}}; Owner: {{$ownerStrains}}</p>
+            <p>F: {{$freeStrains}}; P: {{$ownerStrains}}</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>

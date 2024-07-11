@@ -18,8 +18,6 @@ use App\Models\Breeding\Cvterms\Phenotypemouselink;
 use App\Models\Breeding\Cvterms\Usescheduleterm;
 use App\Models\Breeding\Cvterms\Useschedule;
 
-
-
 use Illuminate\Support\Facades\Log;
 
 trait BManageLitter

@@ -94,11 +94,11 @@
             </td>
           </tr>
 
-					<tr class="bg-secondary">
-            <td class="border px-2  p-1 bg-gray-300">
+					<tr class="">
+            <td class="border px-2  p-1 bg-secondary">
                 Status
             </td>
-            <td class="border px-2  p-1 bg-gray-300">
+            <td class="border px-2  p-1">
 							<select wire:model.lazy="birthEventStatusKey" >
 								<option value="null">Select</option>
                   @foreach($birthStatuses as $item)
@@ -109,11 +109,11 @@
           </tr>
 
 
-					<tr class="bg-secondary">
-						<td class="border px-2  p-1 bg-gray-300">
+					<tr class="">
+						<td class="border px-2  p-1 bg-secondary">
               Origin
 						</td>
-            <td class="border px-2  p-1 bg-gray-300">
+            <td class="border px-2  p-1">
 							<select wire:model.lazy="origin" >
 								<option value="null">Select</option>
                   @foreach($origins as $item)
@@ -128,7 +128,7 @@
               Litter #
 						</td>
 						<td class="border px-2  p-1">
-              <input wire:model.lazy="litterNum" type="text" placeholder="">
+              <input wire:model.lazy="litterNum" class="border" type="text" placeholder="">
 							@if($purpose == "New")
                 <button class="btn btn-primary btn-sm rounded">Next Litter #</button>
 							@endif
@@ -141,7 +141,7 @@
               E: # Culled at Wean
 						</td>
 						<td class="border px-2  p-1">
-              <input wire:model.lazy="culledAtWean" type="text" placeholder="">
+              <input wire:model.lazy="culledAtWean" class="border gray-600" type="text" placeholder="">
 						</td>
 					</tr>
 
@@ -150,15 +150,15 @@
                 F: # Missing at Wean
             </td>
             <td class="border px-2  p-1">
-                <input wire:model.lazy="missAtWean" type="text">
+                <input wire:model.lazy="missAtWean" class="border gray-600" type="text">
             </td>
           </tr>
 
-					<tr class="bg-secondary">
-            <td class="border px-2  p-1 bg-gray-300">
+					<tr class="">
+            <td class="border px-2  p-1 bg-secondary">
               Litter Type
             </td>
-            <td class="border px-2  p-1 bg-gray-300">
+            <td class="border px-2  p-1">
 							<select wire:model.lazy="litType" >
 								<option value="null">Select</option>
                     @foreach($litterTypes as $item)
@@ -174,7 +174,7 @@
             </td>
             <td class="border px-2  p-1">
               <input wire:model.lazy="weanDate" type="text" placeholder="YYYY-MM-DD">
-							(Def: 18 days)
+							(Def: 21 days)
             </td>
           </tr>
 

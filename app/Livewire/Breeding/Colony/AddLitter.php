@@ -181,8 +181,8 @@ class AddLitter extends Component
 		//$this->rooms = Room::all();
 		//$this->diets = CVDiet::where('_species_key', $id)->get();
 		$this->origins = CVOrigin::all();
-        $this->litterTypes = CVLittertype::all();
-        $this->birthStatuses = CVBirtheventstatus::all();
+    $this->litterTypes = CVLittertype::all();
+    $this->birthStatuses = CVBirtheventstatus::all();
 		//$this->containerId = Container::max('containerID');
 		$this->cageInfos = $this->suggestedCage();
 		$this->showLitterEntryForm = true;
