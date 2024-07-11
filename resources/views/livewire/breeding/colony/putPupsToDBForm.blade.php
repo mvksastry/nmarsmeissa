@@ -42,10 +42,10 @@
               Base Mouse Id
             </td>
             <td class="border px-2 p-1">
-              <input wire:model.lazy="baseMouseId" type="text">
+              <input wire:model.lazy="baseMouseId" class="border" type="text">
 						</br>
-						<button class="btn btn-primary btn-sm rounded">Populate ID</button>
-						<button class="btn btn-primary btn-sm rounded">Search ID</button>
+						<button class="btn btn-primary btn-sm rounded mt-2">Populate ID</button>
+						<button class="btn btn-primary btn-sm rounded mt-2">Search ID</button>
             </td>
 					</tr>
 					<tr>
@@ -82,15 +82,36 @@
               <input wire:model.lazy="lpimc" type="checkbox">
             </td>
 					</tr>
+
 					<tr>
 						<td class="border px-2 p-1">
-              Cage Id
+              Room ID
 						</td>
             <td class="border px-2 p-1">
-              <input wire:model.lazy="cageId" type="text">
-							<button class="btn btn-primary btn-sm rounded">Cage Info</button>
+              <input wire:model.lazy="roomId" class="border" type="text">
 						</td>
 					</tr>
+
+					<tr>
+						<td class="border px-2 p-1">
+              Rack ID
+						</td>
+            <td class="border px-2 p-1">
+              <input wire:model.lazy="rackId" class="border" type="text">
+						</td>
+					</tr>          
+          
+					<tr>
+						<td class="border px-2 p-1">
+              Cage ID
+						</td>
+            <td class="border px-2 p-1">
+              <input wire:model.lazy="cageId" class="border" type="text">
+							<button class="btn btn-primary btn-sm rounded mt-2">Cage Info</button>
+						</td>
+					</tr>
+          
+          
 					<tr>
 						<td class="border px-2 p-1">
               # Females / Cage

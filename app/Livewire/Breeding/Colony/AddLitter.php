@@ -61,6 +61,8 @@ class AddLitter extends Component
 
   public $matingId_contains, $matingId, $strainKey, $spKey, $lifeStatus, $ownerWg, $fromDate, $toDate;
   public $matSearchResults, $searchResultsMating, $mqryResult;
+  
+  public $roomId, $rackId;
     
   public function render()
   {
